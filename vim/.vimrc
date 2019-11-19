@@ -1,30 +1,23 @@
-" Vim-plug plugins will be downloaded to this directory.
+" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'scrooloose/nerdtree'
-" Plug 'micha/vim-colors-solarized'
+Plug 'tomasr/molokai'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-" NERDTree settings
-let mapleader = ","
-nmap<leader>n :NERDTree<cr>
 
 " Syntax coloring
 filetype plugin indent on
 syntax enable
 
 " Color schemes
-let g:molokai_original = 1
-let g:rehash256 = 1
-" let g:solarized_termcolors=256
-" colorscheme solarized
-" set background=dark
+colorscheme default
 
 " Enable line numbers
 set number
+set mouse=a
+set cursorline
 
 " Set tabs to 4 spaces
 " set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
