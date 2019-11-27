@@ -1,0 +1,25 @@
+#!/bin/sh
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+CURR_DIR=`pwd`
+DONE="${GREEN}Done${NC}\n"
+
+echo "${CYAN}Copying over bash files...${NC}"
+cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
+echo "$DONE"
+
+echo "${CYAN}Copying over script files...${NC}"
+cp -r ~/code/scripts ~/code/dot-files-and-scripts/
+echo "$DONE"
+
+echo "${CYAN}Copying over vim files...${NC}"
+cp ~/.vimrc ~/code/dot-files-and-scripts/vim
+rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim --exclude .git --exclude .DS_Store
+echo "$DONE"
+
+echo "${CYAN}Copying over zsh files...${NC}"
+cp ~/.zshrc ~/code/dot-files-and-scripts/zsh
+echo "$DONE"
