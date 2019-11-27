@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
 
 CURR_DIR=`pwd`
 LINE_BREAK="============================================================"
@@ -11,13 +15,13 @@ echo "$DONE"
 
 echo
 echo "${CYAN}Copying over script files...${NC}\n$LINE_BREAK"
-cp -r ~/code/scripts ~/code/dot-files-and-scripts/scripts
+cp -r ~/code/scripts ~/code/dot-files-and-scripts/
 echo "$DONE"
 
 echo
 echo "${CYAN}Copying over vim files...${NC}\n$LINE_BREAK"
 cp ~/.vimrc ~/code/dot-files-and-scripts/vim
-cp -r ~/.vim ~/code/dot-files-and-scripts/vim
+rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim --exclude .git --exclude .DS_Storecd $CURR_DIR
 echo "$DONE"
 
 echo

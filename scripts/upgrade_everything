@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
@@ -12,7 +12,7 @@ echo
 echo "${CYAN}Updating git repositories...${NC}\n$LINE_BREAK"
 cd "/Users/donovanmoini/code"
 ./scripts/update_git_repos
-cd $pwd
+cd $CURR_DIR
 echo "$DONE"
 
 echo "${CYAN}Upgrading Homebrew...${NC}\n$LINE_BREAK"
