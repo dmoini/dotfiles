@@ -86,6 +86,7 @@ alias venv="source env/bin/activate"
 # -------------------------------------------------------------------
 # Script Aliases
 # -------------------------------------------------------------------
+
 alias moss="/Users/donovanmoini/code/scripts/moss"
 alias update_git_repos="/Users/donovanmoini/code/scripts/update_git_repos"
 alias upgrade_everything="/Users/donovanmoini/code/scripts/upgrade_everything"
@@ -97,6 +98,7 @@ alias upgrade_everything="/Users/donovanmoini/code/scripts/upgrade_everything"
 alias cl="clear"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias minesweeper="/Users/donovanmoini/code/scripts/mine"
+alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
 alias playroll="cd /Users/donovanmoini/code/lib/go/src/github.com/cazinge/playroll && source services/.env-local"
 alias sbash="source ~/.bash_profile"
 alias ssh-ec2-amplify="ssh -i $AWS_EC2_USEAST1_KEYPAIR_PATH $AWS_EC2_AMPLIFY_DNS"

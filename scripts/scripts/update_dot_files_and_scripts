@@ -1,0 +1,35 @@
+#!/bin/bash
+
+CURR_DIR=`pwd`
+LINE_BREAK="============================================================"
+DONE="$LINE_BREAK\n${GREEN}Done${NC}\n\n"
+
+echo
+echo "${CYAN}Copying over bash files...${NC}\n$LINE_BREAK"
+cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
+echo "$DONE"
+
+echo
+echo "${CYAN}Copying over script files...${NC}\n$LINE_BREAK"
+cp -r ~/code/scripts ~/code/dot-files-and-scripts/scripts
+echo "$DONE"
+
+echo
+echo "${CYAN}Copying over vim files...${NC}\n$LINE_BREAK"
+cp ~/.vimrc ~/code/dot-files-and-scripts/vim
+cp -r ~/.vim ~/code/dot-files-and-scripts/
+echo "$DONE"
+
+echo
+echo "${CYAN}Copying over zsh files...${NC}\n$LINE_BREAK"
+cp ~/.zshrc ~/code/dot-files-and-scripts/zsh
+echo "$DONE"
+
+echo
+echo "${CYAN}Adding, committing, and pushing changes...${NC}\n$LINE_BREAK"
+cd ~/code/dot-files-and-scripts
+git add .
+git commit -m "Updating dot files and scripts"
+git push
+cd $pwd
+echo "$DONE"
