@@ -9,6 +9,7 @@ DONE="${GREEN}Done${NC}\n"
 
 echo "${CYAN}Copying over bash files...${NC}"
 cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
+cp ~/.bashrc ~/code/dot-files-and-scripts/bash
 echo "$DONE"
 
 echo "${CYAN}Copying over script files...${NC}"
