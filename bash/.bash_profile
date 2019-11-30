@@ -106,7 +106,7 @@ alias szsh="source ~/.zshrc"
 alias vbash="vim ~/.bash_profile"
 alias visualize="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias vzsh="vim ~/.zshrc"
-alias ys="yarn start"i
+alias ys="yarn start"
 
 # -------------------------------------------------------------------
 # Sourcing Other Files
