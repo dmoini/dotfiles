@@ -35,7 +35,6 @@ alias gd="git diff"
 alias gda="git diff HEAD"
 alias gfp="git fetch --all && git reset --hard origin/master"
 alias gh="gh-home"
-alias gi="git init"
 alias gl="git log"
 alias glg="git log --graph --oneline --decorate --all"
 alias gld="git log --pretty=format:"%h %ad %s" --date=short --all"
@@ -88,6 +87,7 @@ alias venv="source env/bin/activate"
 # -------------------------------------------------------------------
 
 alias moss="/Users/donovanmoini/code/scripts/moss"
+alias update_dot_files_and_scripts_repository="/Users/donovanmoini/code/scripts/update_dot_files_and_scripts_repository"
 alias update_git_repos="/Users/donovanmoini/code/scripts/update_git_repos"
 alias upgrade_everything="/Users/donovanmoini/code/scripts/upgrade_everything"
 
