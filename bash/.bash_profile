@@ -86,7 +86,6 @@ alias venv="source env/bin/activate"
 # Script Aliases
 # -------------------------------------------------------------------
 
-alias create_go_lesson="/Users/donovanmoini/code/scripts/create_go_lesson"
 alias moss="/Users/donovanmoini/code/scripts/moss"
 alias update_dot_files_and_scripts_repository="/Users/donovanmoini/code/scripts/update_dot_files_and_scripts_repository"
 alias update_git_repos="/Users/donovanmoini/code/scripts/update_git_repos"
