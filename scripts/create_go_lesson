@@ -1,0 +1,51 @@
+#!/bin/bash
+
+CURR_DIR=`pwd`
+GO_PRACTICE_DIR="/Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
+CAPITALIZED_FOLDER_NAME=`echo $1 | awk '{ print toupper(substr($0, 1, 1)) substr($0, 2) }'`
+CAPITALIZED_FILE_NAME=`echo $2 | awk '{ print toupper(substr($0, 1, 1)) substr($0, 2) }'`
+
+if [ -z $1 ] || [ -z $2 ]
+then
+    echo "How to run script: create_go_lesson <folder name> <file name>"
+    exit 1
+fi
+
+FIND_OUTPUT=`find $GO_PRACTICE_DIR -name "iteration" -type d`
+
+if [ ! -z $FIND_OUTPUT ]
+then
+    echo "The folder $1 already exists."
+    exit 1
+fi
+
+cd $GO_PRACTICE_DIR
+echo "Creating folder ($1)..."
+mkdir "$1"
+
+echo "Creating Go files ($2)..."
+cd $1
+touch "$2.go"
+echo "package $1" >> "$2.go"
+echo "// $CAPITALIZED_FILE_NAME description
+func $CAPITALIZED_FILE_NAME() string {
+    return \"\"
+}" >> "$2.go"
+touch "$2_test.go"
+echo "package $1" >> "$2_test.go"
+echo "import \"testing\"" >> "$2_test.go"
+echo "func Test$CAPITALIZED_FILE_NAME(t *testing.T) {
+    assertCorrectMessage := func(t *testing.T, res, expected string) {
+        t.Helper()
+        if expected != res {
+            t.Errorf(\"Got %q expected %q\", res, expected)
+        }
+    }
+
+    t.Run(\"\", func(t *testing.T) {
+        res := $CAPITALIZED_FILE_NAME()
+        expected := \"\"
+        assertCorrectMessage(t, res, expected)
+    })
+}" >> "$2_test.go"
+cd $CURR_DIR
