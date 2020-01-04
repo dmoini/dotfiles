@@ -1,0 +1,32 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+COPYING_ECHO() {
+    echo -e "${CYAN}Copying $1...${NC}"
+}
+
+COPYING_ECHO "bash files"
+cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
+cp ~/.bashrc ~/code/dot-files-and-scripts/bash
+echo
+
+COPYING_ECHO "script files"
+cp -r ~/code/bin ~/code/dot-files-and-scripts/
+echo
+
+COPYING_ECHO "vim files"
+cp ~/.vimrc ~/code/dot-files-and-scripts/vim
+rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim --exclude .git --exclude .DS_Store
+echo
+
+COPYING_ECHO "zsh files"
+cp ~/.zshrc ~/code/dot-files-and-scripts/zsh
+echo
+
+cd ~/code/dot-files-and-scripts
+git add .
+git commit -m "Updating dot files and scripts"
+git push

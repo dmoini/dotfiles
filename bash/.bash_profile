@@ -14,6 +14,7 @@ export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$MONGO_PATH/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+export PATH="$PATH:$HOME/code/bin"
 
 # -------------------------------------------------------------------
 # Git Aliases
@@ -86,10 +87,6 @@ alias venv="source env/bin/activate"
 # Script Aliases
 # -------------------------------------------------------------------
 
-alias moss="/Users/donovanmoini/code/scripts/moss"
-alias update_dot_files_and_scripts_repository="/Users/donovanmoini/code/scripts/update_dot_files_and_scripts_repository"
-alias update_git_repos="/Users/donovanmoini/code/scripts/update_git_repos"
-alias upgrade_everything="/Users/donovanmoini/code/scripts/upgrade_everything"
 
 # -------------------------------------------------------------------
 # Miscellaneous Aliases

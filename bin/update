@@ -1,0 +1,42 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+UPDATING_ECHO() {
+    echo -e "${CYAN}Updating $1...${NC}"
+}
+
+# Git repositories
+UPDATING_ECHO "git repositories"
+cd "/Users/donovanmoini/code"
+update_git_repos
+cd $CURR_DIR
+echo
+
+UPDATING_ECHO "Homebrew"
+brew update
+brew upgrade
+brew cleanup
+echo
+
+UPDATING_ECHO "macOS"
+# sudo -v
+softwareupdate -i -a
+echo
+
+UPDATING_ECHO "outdated global npm packages"
+# npm install -g npm@latest
+npm outdated -g --depth=0
+echo
+npm update -g
+echo
+
+UPDATING_ECHO "Oh My Zsh"
+env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+echo
+
+UPDATING_ECHO "pip"
+pip install --upgrade pip
+echo
