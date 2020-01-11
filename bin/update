@@ -40,3 +40,5 @@ echo
 UPDATING_ECHO "pip"
 pip install --upgrade pip
 echo
+
+nyan

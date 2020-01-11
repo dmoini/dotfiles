@@ -1,20 +1,27 @@
 # -------------------------------------------------------------------
-# Paths
+# Exports
 # -------------------------------------------------------------------
 
 export AWS_EC2_AMPLIFY_DNS="ec2-user@ec2-18-207-222-13.compute-1.amazonaws.com"
 export AWS_EC2_USEAST1_KEYPAIR_PATH="/Users/donovanmoini/.aws/administrator-key-pair-useast1.pem"
 export AWS_EC2_USWEST1_KEYPAIR_PATH="/Users/donovanmoini/.aws/administrator-key-pair-uswest1.pem"
+
 export GOPATH="$HOME/code/lib/go"
 export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin"
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
-export PATH="$PATH:/usr/local/sbin"
+
 export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$MONGO_PATH/bin"
+
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+
 export PATH="$PATH:$HOME/code/bin"
+export PATH="$PATH:/usr/local/sbin"
+
+export HOMEBREW_GITHUB_API_TOKEN="a181c819e2d49f64a532178e8726d6e1fabe2024"
 
 # -------------------------------------------------------------------
 # Git Aliases
@@ -70,10 +77,8 @@ function glf() { git log --all --grep="$1"; }
 # -------------------------------------------------------------------
 
 alias amplify="cd /Users/donovanmoini/code/amplify"
-alias CMSI401="cd /Users/donovanmoini/code/lmu/cmsi401-software-engineering-lab"
-alias CMSI486="cd /Users/donovanmoini/code/lmu/cmsi486-introduction-to-database-systems"
+alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
-alias CMSIDS="cd /Users/donovanmoini/Desktop/CMSI\ TA/Data\ Structures"
 
 # -------------------------------------------------------------------
 # Python Aliases
@@ -92,10 +97,8 @@ alias venv="source env/bin/activate"
 # Miscellaneous Aliases
 # -------------------------------------------------------------------
 
-alias cl="clear"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
-alias minesweeper="/Users/donovanmoini/code/scripts/mine"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
 alias playroll="cd /Users/donovanmoini/code/lib/go/src/github.com/cazinge/playroll && source services/.env-local"
 alias sbash="source ~/.bash_profile"
