@@ -13,6 +13,11 @@ cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
 cp ~/.bashrc ~/code/dot-files-and-scripts/bash
 echo
 
+COPYING_ECHO "homebrew packages"
+brew bundle dump
+mv Brewfile /Users/donovanmoini/code/dot-files-and-scripts
+echo
+
 COPYING_ECHO "script files"
 cp -r ~/code/bin ~/code/dot-files-and-scripts/
 echo

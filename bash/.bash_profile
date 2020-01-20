@@ -78,6 +78,7 @@ function glf() { git log --all --grep="$1"; }
 
 alias amplify="cd /Users/donovanmoini/code/amplify"
 alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR"
+alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
 
 # -------------------------------------------------------------------
@@ -100,6 +101,10 @@ alias venv="source env/bin/activate"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
 alias playroll="cd /Users/donovanmoini/code/lib/go/src/github.com/cazinge/playroll && source services/.env-local"
 alias sbash="source ~/.bash_profile"
 alias ssh-ec2-amplify="ssh -i $AWS_EC2_USEAST1_KEYPAIR_PATH $AWS_EC2_AMPLIFY_DNS"
