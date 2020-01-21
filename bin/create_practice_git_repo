@@ -25,7 +25,7 @@ Practice projects to learn $REPO_TOPIC." >> README.md
 
 git init
 git add . && git commit -m "Created $REPO_TOPIC practice repository."
-hub create -d "Practice projects to learn $REPO_TOPIC."
+hub create -p -d "Practice projects to learn $REPO_TOPIC."
 git push origin master
 
 cd $CURR_DIR
