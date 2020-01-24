@@ -12,6 +12,9 @@ COPYING_ECHO "bash files"
 cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
 cp ~/.bashrc ~/code/dot-files-and-scripts/bash
 
+COPYING_ECHO "git config"
+cp ~/.gitconfig ~/code/dot-files-and-scripts/
+
 COPYING_ECHO "homebrew packages"
 brew bundle dump
 mv Brewfile /Users/donovanmoini/code/dot-files-and-scripts

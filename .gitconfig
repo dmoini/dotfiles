@@ -1,0 +1,20 @@
+[user]
+	name = Donovan Moini
+	email = donovanmoini@gmail.com
+[credential]
+	helper = osxkeychain
+[alias]
+	ch = checkout
+	co = commit
+	st = status
+ 	br = branch
+	hist = log --all --color --graph --pretty=format:'\\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\\'
+	type = cat-file -t
+	dump = cat-file -p
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = auto
