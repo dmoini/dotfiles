@@ -77,9 +77,10 @@ function glf() { git log --all --grep="$1"; }
 # -------------------------------------------------------------------
 
 alias amplify="cd /Users/donovanmoini/code/amplify"
-alias cg="cd /Users/donovanmoini/code/CampusGANDR"
-alias cgap="cd /Users/donovanmoini/code/CampusGANDR-AdminConsole"
+alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR"
+alias campusgandr-adminpanel="cd /Users/donovanmoini/code/CampusGANDR-Admin"
 alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
+alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
 
 # -------------------------------------------------------------------

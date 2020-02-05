@@ -22,7 +22,6 @@ brew cleanup
 echo
 
 UPDATING_ECHO "macOS"
-# sudo -v
 softwareupdate -i -a
 echo
 
@@ -39,6 +38,5 @@ echo
 
 UPDATING_ECHO "pip"
 pip install --upgrade pip
-echo
 
 nyan
