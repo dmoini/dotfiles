@@ -82,6 +82,7 @@ alias campusgandr-adminpanel="cd /Users/donovanmoini/code/CampusGANDR-Admin"
 alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
 alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
+alias pokemon-wiki="cd /Users/donovanmoini/code/lmu/pokemon-wiki"
 
 # -------------------------------------------------------------------
 # Python Aliases
@@ -100,6 +101,7 @@ alias venv="source env/bin/activate"
 # Miscellaneous Aliases
 # -------------------------------------------------------------------
 
+alias c.="code ."
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
