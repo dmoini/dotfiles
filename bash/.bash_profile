@@ -1,16 +1,11 @@
 # -------------------------------------------------------------------
 # Exports
 # -------------------------------------------------------------------
-
-export AWS_EC2_AMPLIFY_DNS="ec2-user@ec2-18-207-222-13.compute-1.amazonaws.com"
-export AWS_EC2_USEAST1_KEYPAIR_PATH="/Users/donovanmoini/.aws/administrator-key-pair-useast1.pem"
-export AWS_EC2_USWEST1_KEYPAIR_PATH="/Users/donovanmoini/.aws/administrator-key-pair-uswest1.pem"
-
 export GOPATH="$HOME/code/lib/go"
 export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.jdk/Contents/Home"
 
 export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$MONGO_PATH/bin"
@@ -82,7 +77,6 @@ alias campusgandr-adminpanel="cd /Users/donovanmoini/code/CampusGANDR-Admin"
 alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
 alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
-alias pokemon-wiki="cd /Users/donovanmoini/code/lmu/pokemon-wiki"
 
 # -------------------------------------------------------------------
 # Python Aliases
@@ -103,6 +97,7 @@ alias venv="source env/bin/activate"
 
 alias c.="code ."
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+alias fcl="fortune | cowsay | lolcat"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
 
@@ -111,7 +106,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias playroll="cd /Users/donovanmoini/code/lib/go/src/github.com/cazinge/playroll && source services/.env-local"
 alias sbash="source ~/.bash_profile"
-alias ssh-ec2-amplify="ssh -i $AWS_EC2_USEAST1_KEYPAIR_PATH $AWS_EC2_AMPLIFY_DNS"
 alias szsh="source ~/.zshrc"
 alias vbash="vim ~/.bash_profile"
 alias visualize="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
