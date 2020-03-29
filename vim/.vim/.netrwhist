@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/donovanmoini'
 let g:netrw_dirhist_2='/Users/donovanmoini/Downloads/html5up-read-only'
 let g:netrw_dirhist_3='/Users/donovanmoini/.oh-my-zsh/plugins'
 let g:netrw_dirhist_4='/Users/donovanmoini/.vim'
+let g:netrw_dirhist_5='/Users/donovanmoini/.oh-my-zsh'

@@ -15,10 +15,13 @@ for i in $(find . -name ".git" | cut -c 3-); do
     cd "$i";
     cd ..;
 
-    # finally pull
+    # Finally pull
     git pull origin master;
 
-    # lets get back to the CUR_DIR
+    # Fetch git objects from upstream and update local branches
+    hub sync
+
+    # Lets get back to the CUR_DIR
     cd $CUR_DIR
 done
 

@@ -9,22 +9,26 @@ COPYING_ECHO() {
 }
 
 COPYING_ECHO "bash files"
-cp ~/.bash_profile ~/code/dot-files-and-scripts/bash
-cp ~/.bashrc ~/code/dot-files-and-scripts/bash
+cp ~/.bash_profile ~/code/dot-files-and-scripts/bash/
+cp ~/.bashrc ~/code/dot-files-and-scripts/bash/
 
 COPYING_ECHO "git config"
-cp ~/.gitconfig ~/code/dot-files-and-scripts/
+cp ~/.gitconfig ~/code/dot-files-and-scripts/git/
 
 COPYING_ECHO "homebrew packages"
 brew bundle dump
-mv Brewfile /Users/donovanmoini/code/dot-files-and-scripts
+mv Brewfile /Users/donovanmoini/code/dot-files-and-scripts/homebrew/
+
+COPYING_ECHO "pip packages"
+pip freeze >> pip-packages.txt
+mv pip-packages.txt ~/code/dot-files-and-scripts/pip/
 
 COPYING_ECHO "script files"
 cp -r ~/code/bin ~/code/dot-files-and-scripts/
 
 COPYING_ECHO "vim files"
-cp ~/.vimrc ~/code/dot-files-and-scripts/vim
-rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim --exclude .git --exclude .DS_Store &> /dev/null
+cp ~/.vimrc ~/code/dot-files-and-scripts/vim/
+rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim/ --exclude .git --exclude .DS_Store &> /dev/null
 
 COPYING_ECHO "zsh files"
-cp ~/.zshrc ~/code/dot-files-and-scripts/zsh
+cp ~/.zshrc ~/code/dot-files-and-scripts/zsh/

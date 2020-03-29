@@ -11,7 +11,6 @@ export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$MONGO_PATH/bin"
 
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 export PATH="$PATH:$HOME/code/bin"
 export PATH="$PATH:/usr/local/sbin"
@@ -73,10 +72,11 @@ function glf() { git log --all --grep="$1"; }
 
 alias amplify="cd /Users/donovanmoini/code/amplify"
 alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR"
-alias campusgandr-adminpanel="cd /Users/donovanmoini/code/CampusGANDR-Admin"
+alias campusgandr-admin="cd /Users/donovanmoini/code/CampusGANDR-Admin"
 alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
 alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
+alias wsiw="cd /Users/donovanmoini/code/what-should-i-watch"
 
 # -------------------------------------------------------------------
 # Python Aliases
@@ -99,13 +99,12 @@ alias c.="code ."
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias fcl="fortune | cowsay | lolcat"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
+alias lpass-passclip="lpass show --password -c $1"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
-
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-alias playroll="cd /Users/donovanmoini/code/lib/go/src/github.com/cazinge/playroll && source services/.env-local"
 alias sbash="source ~/.bash_profile"
+alias sp="spotify"
 alias szsh="source ~/.zshrc"
 alias vbash="vim ~/.bash_profile"
 alias visualize="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
