@@ -15,8 +15,10 @@ colorama==0.4.1
 decorator==4.4.1
 Django==3.0.1
 docutils==0.15.2
+filelock==3.0.12
 future==0.18.2
 gast==0.3.2
+gdown==3.10.2
 Glances==3.1.4
 google-api-python-client==1.7.8
 google-auth==1.12.0
@@ -64,6 +66,7 @@ sqlparse==0.3.0
 stem==1.7.1
 termcolor==1.1.0
 torrequest==0.1.0
+tqdm==4.45.0
 uritemplate==3.0.1
 urllib3==1.24.3
 Werkzeug==0.16.0

@@ -24,7 +24,7 @@ pip freeze >> pip-packages.txt
 mv pip-packages.txt ~/code/dot-files-and-scripts/pip/
 
 COPYING_ECHO "script files"
-cp -r ~/code/bin ~/code/dot-files-and-scripts/
+cp -r ~/code/scripts ~/code/dot-files-and-scripts/
 
 COPYING_ECHO "vim files"
 cp ~/.vimrc ~/code/dot-files-and-scripts/vim/

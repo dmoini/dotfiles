@@ -12,11 +12,11 @@ export PATH="$PATH:$MONGO_PATH/bin"
 
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 
-export PATH="$PATH:$HOME/code/bin"
+export PATH="$PATH:$HOME/code/scripts"
 export PATH="$PATH:/usr/local/sbin"
 
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/donovanmoini/code/CampusGANDR-Admin/src/serviceAccountKey.json" 
 export HOMEBREW_GITHUB_API_TOKEN="a181c819e2d49f64a532178e8726d6e1fabe2024"
-
 # -------------------------------------------------------------------
 # Git Aliases
 # -------------------------------------------------------------------
@@ -65,14 +65,21 @@ alias gub="git push -u origin"
 
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
+# Track all remote branches
+function gtarb() { for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do git branch --track ${i#remotes/origin/} $i; done }
+# Delete branch locally and remotely
+function gbdlr() {
+  git branch --delete $1
+  git push origin :$1
+}
 
 # -------------------------------------------------------------------
 # Class Aliases
 # -------------------------------------------------------------------
 
 alias amplify="cd /Users/donovanmoini/code/amplify"
-alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR"
-alias campusgandr-admin="cd /Users/donovanmoini/code/CampusGANDR-Admin"
+alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR/CampusGANDR"
+alias campusgandr-admin="cd /Users/donovanmoini/code/CampusGANDR/CampusGANDR-Admin"
 alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
 alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
 alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
