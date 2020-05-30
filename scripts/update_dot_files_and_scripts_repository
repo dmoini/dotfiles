@@ -1,5 +1,7 @@
 #!/bin/bash
 
+REPO_DIR="${HOME}/code/dot-files-and-scripts"
+
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m'
@@ -9,32 +11,32 @@ COPYING_ECHO() {
 }
 
 COPYING_ECHO "bash files"
-cp ~/.bash_profile ~/code/dot-files-and-scripts/bash/
-cp ~/.bashrc ~/code/dot-files-and-scripts/bash/
+cp ~/.bash_profile "${REPO_DIR}/bash/"
+cp ~/.bashrc "${REPO_DIR}/bash/"
 
 COPYING_ECHO "git config"
-cp ~/.gitconfig ~/code/dot-files-and-scripts/git/
+cp ~/.gitconfig "${REPO_DIR}/git/"
 
 COPYING_ECHO "homebrew packages"
 brew bundle dump
-mv Brewfile /Users/donovanmoini/code/dot-files-and-scripts/homebrew/
+mv Brewfile "${REPO_DIR}/homebrew/"
 
 # To import these packages, run the following:
 # xargs npm install -g < npm-global-packages.txt
 COPYING_ECHO "npm packages"
 npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
-mv npm-global-packages.txt ~/code/dot-files-and-scripts/npm/
+mv npm-global-packages.txt "${REPO_DIR}/npm/"
 
 COPYING_ECHO "pip packages"
-pip freeze >> pip-packages.txt
-mv pip-packages.txt ~/code/dot-files-and-scripts/pip/
+pip freeze > pip-packages.txt
+mv pip-packages.txt "${REPO_DIR}/pip/"
 
-COPYING_ECHO "script files"
-cp -r ~/code/scripts ~/code/dot-files-and-scripts/
+COPYING_ECHO "scripts"
+cp -r ~/code/scripts "${REPO_DIR}/"
 
 COPYING_ECHO "vim files"
-cp ~/.vimrc ~/code/dot-files-and-scripts/vim/
-rsync -av --progress ~/.vim ~/code/dot-files-and-scripts/vim/ --exclude .git --exclude .DS_Store &> /dev/null
+cp ~/.vimrc "${REPO_DIR}/vim/"
+rsync -av --progress ~/.vim "${REPO_DIR}/vim/" --exclude .git --exclude .DS_Store &> /dev/null
 
 COPYING_ECHO "zsh files"
-cp ~/.zshrc ~/code/dot-files-and-scripts/zsh/
+cp ~/.zshrc "${REPO_DIR}/zsh/"

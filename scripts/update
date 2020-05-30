@@ -3,12 +3,16 @@
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m'
+CURR_DIR=$(pwd)
 
 UPDATING_ECHO() {
     echo -e "${CYAN}Updating $1...${NC}"
 }
 
-# Git repositories
+UPDATING_ECHO "appstore apps"
+mas upgrade
+echo
+
 UPDATING_ECHO "git repositories"
 cd "/Users/donovanmoini/code"
 update_git_repos

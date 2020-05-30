@@ -1,22 +1,19 @@
 # -------------------------------------------------------------------
 # Exports
 # -------------------------------------------------------------------
+
 export GOPATH="$HOME/code/lib/go"
 export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOPATH/bin"
-
+export HOMEBREW_GITHUB_API_TOKEN="a181c819e2d49f64a532178e8726d6e1fabe2024"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
-
 export MONGO_PATH="/usr/local/mongodb"
+export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$MONGO_PATH/bin"
-
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
-
 export PATH="$PATH:$HOME/code/scripts"
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/Users/donovanmoini/Library/Python/3.7/bin"
 
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/donovanmoini/code/CampusGANDR-Admin/src/serviceAccountKey.json" 
-export HOMEBREW_GITHUB_API_TOKEN="a181c819e2d49f64a532178e8726d6e1fabe2024"
 # -------------------------------------------------------------------
 # Git Aliases
 # -------------------------------------------------------------------
@@ -27,6 +24,7 @@ alias gau="git add --update"
 alias gb="git branch"
 alias gbd="git branch --delete "
 alias gc="git commit -m"
+alias gca="git commit --amend -m"
 alias gcf="git commit --fixup"
 alias gco="git checkout"
 alias gcob="git checkout -b"
@@ -75,39 +73,24 @@ function gbdlr() {
 }
 
 # -------------------------------------------------------------------
-# Class Aliases
-# -------------------------------------------------------------------
-
-alias amplify="cd /Users/donovanmoini/code/amplify"
-alias campusgandr="cd /Users/donovanmoini/code/CampusGANDR/CampusGANDR"
-alias campusgandr-admin="cd /Users/donovanmoini/code/CampusGANDR/CampusGANDR-Admin"
-alias CMSI399="cd /Users/donovanmoini/code/lmu/cmsi399-app-development-practicum"
-alias CMSI432="cd /Users/donovanmoini/code/lmu/cmsi432-cognitive-systems-design"
-alias CMSITA="cd /Users/donovanmoini/Desktop/CMSI\ TA"
-alias wsiw="cd /Users/donovanmoini/code/what-should-i-watch"
-
-# -------------------------------------------------------------------
 # Python Aliases
 # -------------------------------------------------------------------
 
 alias dvenv="deactivate"
 alias mvenv="python3 -m venv env"
 alias venv="source env/bin/activate"
-
-# -------------------------------------------------------------------
-# Script Aliases
-# -------------------------------------------------------------------
-
+alias pip_upgrade="pip install --upgrade pip"
 
 # -------------------------------------------------------------------
 # Miscellaneous Aliases
 # -------------------------------------------------------------------
 
+alias amplify="cd /Users/donovanmoini/code/amplify"
 alias c.="code ."
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias fcl="fortune | cowsay | lolcat"
 alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
-alias lpass-passclip="lpass show --password -c $1"
+alias lpass-passclip="lpass show --password -c"
 alias mongod="mongod --dbpath /System/Volumes/Data/data/db"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'

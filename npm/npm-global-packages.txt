@@ -3,6 +3,7 @@ eslint
 eslint-plugin-react
 expo-cli
 fast-cli
+firebase-tools
 gh-home
 is-online-cli
 is-up
@@ -12,7 +13,7 @@ npkill
 npm
 npm-check-updates
 react-native-cli
-serverless
+sort-package-json
 speed-test
 tldr
 trash-cli
