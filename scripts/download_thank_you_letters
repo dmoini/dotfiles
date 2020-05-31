@@ -12,10 +12,10 @@ fi
 
 for f in * ; do
     FIRST_NAME=$(echo "$f" | sed 's/\ .*//g')
-    echo "Downloading ${FIRST_NAME}'s thank you letter..."
     FILE_NAME="Thank You ${FIRST_NAME} ❤️"
     DOC_ID=$(cat "$f" | jq '.doc_id' | sed -E 's/\"//g')
     cd "$GDRIVE_CLI_DIR"
+    echo "Downloading ${FIRST_NAME}'s thank you letter..."
     source env/bin/activate
     python3 "${GDRIVE_CLI_DIR}/gdrive/gdrive.py" download -i "$DOC_ID" -n "$FILE_NAME" -d "$DOWNLOAD_DIR"
     deactivate

@@ -6,12 +6,8 @@ fast-cli
 firebase-tools
 gh-home
 is-online-cli
-is-up
 is-up-cli
 node-gyp
-npkill
-npm
-npm-check-updates
 react-native-cli
 sort-package-json
 speed-test
