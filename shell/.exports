@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Editor
+export EDITOR=$(which vim)
+
+# Go
+export GOPATH="$HOME/code/lib/go"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="$PATH:$GOPATH/bin"
+
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="25b75a0bc8bd20f6d61a77d59f41b15ef25667a0"
+
+# Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
+
+# Mongo
+export MONGO_PATH="/usr/local/mongodb"
+export PATH="$PATH:$MONGO_PATH/bin"
+
+# Python
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
+export PATH="$PATH:/Users/donovanmoini/Library/Python/3.7/bin"
+
+# Zsh
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=7
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/donovanmoini/.oh-my-zsh"
+
+# Miscellaneous
+export PATH="$PATH:$HOME/code/scripts"
+export PATH="$PATH:/usr/local/sbin"

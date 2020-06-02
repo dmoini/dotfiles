@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Delete branch locally and remotely
+gbdlr() {
+  git branch --delete $1
+  git push origin :$1
+}
+
+# Git log find by commit message
+glf() { 
+    git log --all --grep="$1";
+}
+
+# Track all remote branches
+gtarb() {
+     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
+        git branch --track ${i#remotes/origin/} $i
+    done
+}
+
+# Print each PATH entry on a separate line
+path() {
+    echo -e ${PATH//:/\\n};
+}
