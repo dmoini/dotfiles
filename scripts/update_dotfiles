@@ -7,37 +7,37 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 COPYING_ECHO() {
-    echo -e "${NC}Copying $1...${NC}"
+    echo -e "${NC}Copying $1 files...${NC}"
 }
 
-COPYING_ECHO "git config"
+COPYING_ECHO "git"
 cp ~/.gitconfig "${REPO_DIR}/git/"
 
-COPYING_ECHO "homebrew packages"
+COPYING_ECHO "homebrew"
 brew bundle dump
 mv Brewfile "${REPO_DIR}/homebrew/"
 
 # To import these packages, run the following:
 # xargs npm install -g < npm-global-packages.txt
-COPYING_ECHO "npm packages"
+COPYING_ECHO "npm"
 npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
 mv npm-global-packages.txt "${REPO_DIR}/npm/"
 
-COPYING_ECHO "pip packages"
+COPYING_ECHO "pip"
 pip freeze > pip-packages.txt
 mv pip-packages.txt "${REPO_DIR}/pip/"
 
-COPYING_ECHO "scripts"
+COPYING_ECHO "script"
 cp -r ~/code/scripts "${REPO_DIR}/"
 
-COPYING_ECHO "shell files"
+COPYING_ECHO "shell"
 cp ~/.aliases "${REPO_DIR}/shell/"
 cp ~/.exports "${REPO_DIR}/shell/"
 cp ~/.functions "${REPO_DIR}/shell/"
 
-COPYING_ECHO "vim files"
+COPYING_ECHO "vim"
 cp ~/.vimrc "${REPO_DIR}/vim/"
 rsync -av --progress ~/.vim "${REPO_DIR}/vim/" --exclude .git --exclude .DS_Store &> /dev/null
 
-COPYING_ECHO "zsh files"
+COPYING_ECHO "zsh"
 cp ~/.zshrc "${REPO_DIR}/zsh/"
