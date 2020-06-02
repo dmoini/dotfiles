@@ -14,7 +14,7 @@ mas upgrade
 echo
 
 UPDATING_ECHO "files and scripts repository"
-update_files_and_scripts
+update_dotfiles
 echo
 
 UPDATING_ECHO "git repositories"

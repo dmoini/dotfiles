@@ -4,7 +4,7 @@
 
 export GOPATH="$HOME/code/lib/go"
 export GOROOT="/usr/local/opt/go/libexec"
-export HOMEBREW_GITHUB_API_TOKEN="a181c819e2d49f64a532178e8726d6e1fabe2024"
+export HOMEBREW_GITHUB_API_TOKEN="25b75a0bc8bd20f6d61a77d59f41b15ef25667a0"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
 export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$GOPATH/bin"
