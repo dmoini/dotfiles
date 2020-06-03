@@ -23,6 +23,12 @@ fs() {
 	fi;
 }
 
+# Git commit ammend with last commit message
+gcalcm() {
+	last_commit_message="$(echo $(glcm))"
+	gca "${last_commit_message}"
+}
+
 # Delete branch locally and remotely
 gbdlr() {
   	git branch --delete $1;
