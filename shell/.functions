@@ -2,37 +2,37 @@
 
 # `code` with no arguments opens the current directory, otherwise opens the given location
 c() {
-	if [ $# -eq 0 ]; then
-		code .;
-	else
-		code "$@";
-	fi;
+    if [ $# -eq 0 ]; then
+        code .;
+    else
+        code "$@";
+    fi;
 }
 
 # Determine size of a file or total size of a directory
 fs() {
-	if du -b /dev/null > /dev/null 2>&1; then
-		local arg=-sbh;
-	else
-		local arg=-sh;
-	fi
-	if [[ -n "$@" ]]; then
-		du $arg -- "$@";
-	else
-		du $arg .[^.]* ./*;
-	fi;
+    if du -b /dev/null > /dev/null 2>&1; then
+        local arg=-sbh;
+    else
+        local arg=-sh;
+    fi
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@";
+    else
+        du $arg .[^.]* ./*;
+    fi;
 }
 
 # Git commit ammend with last commit message
 gcalcm() {
-	last_commit_message="$(echo $(glcm))"
-	gca "${last_commit_message}"
+    last_commit_message="$(echo $(glcm))"
+    gca "${last_commit_message}"
 }
 
 # Delete branch locally and remotely
 gbdlr() {
-  	git branch --delete $1;
-  	git push origin :$1;
+    git branch --delete $1;
+    git push origin :$1;
 }
 
 # Git log find by commit message
@@ -49,9 +49,9 @@ gtarb() {
 
 # `o` with no arguments opens the current directory, otherwise opens the given location
 o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
-	fi;
+    if [ $# -eq 0 ]; then
+        open .;
+    else
+        open "$@";
+    fi;
 }
