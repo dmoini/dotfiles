@@ -41,6 +41,11 @@ gtarb() {
     done
 }
 
+# Print my IP
+myip() {
+	ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
+}
+
 # `o` with no arguments opens the current directory, otherwise opens the given location
 o() {
 	if [ $# -eq 0 ]; then
