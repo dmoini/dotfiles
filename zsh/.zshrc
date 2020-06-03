@@ -1,6 +1,6 @@
 # Sourcing other files
-source ~/.aliases
 source ~/.exports
+source ~/.aliases
 source ~/.functions
 source ~/.localrc
 

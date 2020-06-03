@@ -18,7 +18,7 @@ update_dotfiles
 echo
 
 UPDATING_ECHO "git repositories"
-cd "/Users/donovanmoini/code"
+cd "$HOME/code"
 update_git_repos
 cd $CURR_DIR
 echo

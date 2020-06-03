@@ -1,8 +1,8 @@
 #!/bin/bash
 
 CURR_DIR=$(pwd)
-GDRIVE_CLI_DIR="/Users/donovanmoini/code/gdrive-cli"
-DOWNLOAD_DIR="/Users/donovanmoini/Desktop/TY"
+GDRIVE_CLI_DIR="$HOME/code/gdrive-cli"
+DOWNLOAD_DIR="$HOME/Desktop/TY"
 
 if ! [[ -d "$DOWNLOAD_DIR" ]]
 then

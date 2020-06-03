@@ -20,6 +20,7 @@ alias gda="git diff HEAD"
 alias gfp="git fetch --all && git reset --hard origin/master"
 alias gh="gh-home"
 alias gl="git log"
+alias glcm="git show-branch --no-name HEAD"
 alias glg="git log --graph --oneline --decorate --all"
 alias gld="git log --pretty=format:"%h %ad %s" --date=short --all"
 alias gm="git merge --no-ff"
@@ -41,6 +42,9 @@ alias gsts="git stash save"
 alias gu="git push"
 alias gub="git push -u origin"
 
+# LastPass CLI
+alias lpass-passclip="lpass show --password -c"
+
 # Python
 alias dvenv="deactivate"
 alias mvenv="python3 -m venv env"
@@ -48,15 +52,19 @@ alias venv="source env/bin/activate"
 alias pip_upgrade="pip install --upgrade pip"
 
 # Shell
-alias szsh="source ~/.zshrc"
-alias vzsh="vim ~/.zshrc"
+alias valiases="$EDITOR ~/.aliases"
+alias vexports="$EDITOR ~/.exports"
+alias vfunctions="$EDITOR ~/.functions"
+alias vlocalrc="$EDITOR ~/.localrc"
+alias vzsh="$EDITOR ~/.zshrc"
 
 # Miscellaneous
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
-alias amplify="cd /Users/donovanmoini/code/amplify"
+alias amplify="cd $HOME/code/amplify"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias fcl="fortune | cowsay | lolcat"
-alias GO_PRACTICE="cd /Users/donovanmoini/code/lib/go/src/github.com/dmoini/go-practice"
-alias lpass-passclip="lpass show --password -c"
+alias GO_PRACTICE="cd $HOME/code/lib/go/src/github.com/dmoini/go-practice"
+alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'"
+alias path="echo -e ${PATH//:/\\n};"
 alias sp="spotify"
 alias ys="yarn start"

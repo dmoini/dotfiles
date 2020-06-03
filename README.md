@@ -1,2 +1,2 @@
 # Dotfiles
-A repository where I can save dot files and scripts for future purposes.
+My personal dotfiles.

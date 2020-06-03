@@ -1,1 +1,5 @@
+# In case this gets copied over by accident
+.localrc
+
+# Unnecessary file
 .DS_Store

@@ -25,8 +25,8 @@ fs() {
 
 # Delete branch locally and remotely
 gbdlr() {
-  	git branch --delete $1
-  	git push origin :$1
+  	git branch --delete $1;
+  	git push origin :$1;
 }
 
 # Git log find by commit message
@@ -37,13 +37,8 @@ glf() {
 # Track all remote branches
 gtarb() {
     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
-        git branch --track ${i#remotes/origin/} $i
+        git branch --track ${i#remotes/origin/} $i;
     done
-}
-
-# Print my IP
-myip() {
-	ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
 }
 
 # `o` with no arguments opens the current directory, otherwise opens the given location
@@ -53,9 +48,4 @@ o() {
 	else
 		open "$@";
 	fi;
-}
-
-# Print each PATH entry on a separate line
-path() {
-    echo -e ${PATH//:/\\n};
 }
