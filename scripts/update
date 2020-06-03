@@ -13,7 +13,7 @@ UPDATING_ECHO "appstore apps"
 mas upgrade
 echo
 
-UPDATING_ECHO "files and scripts repository"
+UPDATING_ECHO "dotfiles"
 update_dotfiles
 echo
 
@@ -34,18 +34,17 @@ UPDATING_ECHO "macOS"
 softwareupdate -i -a
 echo
 
-UPDATING_ECHO "outdated global npm packages"
-# npm install -g npm@latest
+UPDATING_ECHO "npm packages"
 npm outdated -g --depth=0
 echo
 npm update -g
 echo
 
-UPDATING_ECHO "Oh My Zsh"
-env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
-echo
-
 UPDATING_ECHO "pip"
 pip install --upgrade pip
+
+UPDATING_ECHO "zsh"
+env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+echo
 
 nyan

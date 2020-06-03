@@ -2,6 +2,7 @@
 source ~/.aliases
 source ~/.exports
 source ~/.functions
+source ~/.localrc
 
 # Zsh theme
 ZSH_THEME="robbyrussell"

@@ -1,9 +1,32 @@
 #!/bin/bash
 
+# `code` with no arguments opens the current directory, otherwise opens the given location
+c() {
+	if [ $# -eq 0 ]; then
+		code .;
+	else
+		code "$@";
+	fi;
+}
+
+# Determine size of a file or total size of a directory
+fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
 # Delete branch locally and remotely
 gbdlr() {
-  git branch --delete $1
-  git push origin :$1
+  	git branch --delete $1
+  	git push origin :$1
 }
 
 # Git log find by commit message
@@ -13,9 +36,18 @@ glf() {
 
 # Track all remote branches
 gtarb() {
-     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
+    for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
         git branch --track ${i#remotes/origin/} $i
     done
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given location
+o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
 }
 
 # Print each PATH entry on a separate line
