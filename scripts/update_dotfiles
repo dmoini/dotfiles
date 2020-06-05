@@ -18,7 +18,7 @@ brew bundle dump
 mv Brewfile "${REPO_DIR}/homebrew/"
 
 # To import these packages, run the following:
-# xargs npm install -g < npm-global-packages.txt
+# cat npm-global-packages.txt | xargs npm i -g
 COPYING_ECHO "npm"
 npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
 mv npm-global-packages.txt "${REPO_DIR}/npm/"

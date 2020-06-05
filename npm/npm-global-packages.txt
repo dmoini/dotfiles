@@ -3,11 +3,11 @@ eslint
 eslint-plugin-react
 expo-cli
 fast-cli
-firebase-tools
 gh-home
 is-online-cli
 is-up-cli
 node-gyp
+npm
 react-native-cli
 sort-package-json
 speed-test

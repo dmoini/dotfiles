@@ -1,5 +1,8 @@
 # In case this gets copied over by accident
 .localrc
 
+# Swap files
+*.swp
+
 # Unnecessary file
 .DS_Store

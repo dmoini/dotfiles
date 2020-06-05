@@ -47,6 +47,11 @@ gtarb() {
     done
 }
 
+# Lists globally installed npm packages
+npm-global-packages() {
+    npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}'
+}
+
 # `o` with no arguments opens the current directory, otherwise opens the given location
 o() {
     if [ $# -eq 0 ]; then
