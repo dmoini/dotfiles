@@ -1,6 +1,7 @@
 #!/bin/bash
 
-REPO_DIR="${HOME}/code/dotfiles"
+DOTFILES_DIR="${HOME}/code/dotfiles"
+VSCODE_DIR="${HOME}/Library/Application Support/Code/User"
 
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
@@ -11,33 +12,40 @@ COPYING_ECHO() {
 }
 
 COPYING_ECHO "git"
-cp ~/.gitconfig "${REPO_DIR}/git/"
+cp "${HOME}/.gitconfig" "${DOTFILES_DIR}/git/"
 
 COPYING_ECHO "homebrew"
+# If Brewfile already exists, delete it and create new one
+if [ -f Brewfile ]; then
+    rm Brewfile
+fi
 brew bundle dump
-mv Brewfile "${REPO_DIR}/homebrew/"
+mv Brewfile "${DOTFILES_DIR}/homebrew/"
 
-# To import these packages, run the following:
-# cat npm-global-packages.txt | xargs npm i -g
+# To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
 COPYING_ECHO "npm"
 npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
-mv npm-global-packages.txt "${REPO_DIR}/npm/"
+mv npm-global-packages.txt "${DOTFILES_DIR}/npm/"
 
 COPYING_ECHO "pip"
 pip freeze > pip-packages.txt
-mv pip-packages.txt "${REPO_DIR}/pip/"
+mv pip-packages.txt "${DOTFILES_DIR}/pip/"
 
 COPYING_ECHO "script"
-cp -r ~/code/scripts "${REPO_DIR}/"
+cp -r "${HOME}/code/scripts" "${DOTFILES_DIR}/"
 
 COPYING_ECHO "shell"
-cp ~/.aliases "${REPO_DIR}/shell/"
-cp ~/.exports "${REPO_DIR}/shell/"
-cp ~/.functions "${REPO_DIR}/shell/"
+cp "${HOME}/.aliases" "${DOTFILES_DIR}/shell/"
+cp "${HOME}/.exports" "${DOTFILES_DIR}/shell/"
+cp "${HOME}/.functions" "${DOTFILES_DIR}/shell/"
 
 COPYING_ECHO "vim"
-cp ~/.vimrc "${REPO_DIR}/vim/"
-rsync -av --progress ~/.vim "${REPO_DIR}/vim/" --exclude .git --exclude .DS_Store &> /dev/null
+cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim/"
+rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim/" --exclude .git --exclude .DS_Store &> /dev/null
+
+COPYING_ECHO "vscode"
+cp "${VSCODE_DIR}/settings.json" "${DOTFILES_DIR}/vscode/"
+cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode/"
 
 COPYING_ECHO "zsh"
-cp ~/.zshrc "${REPO_DIR}/zsh/"
+cp "${HOME}/.zshrc" "${DOTFILES_DIR}/zsh/"

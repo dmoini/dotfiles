@@ -15,7 +15,6 @@ DISABLE_UPDATE_PROMPT=true
 plugins=(
   colorize
   you-should-use
-  zsh_reload
   zsh-syntax-highlighting
 )
 

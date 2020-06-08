@@ -12,3 +12,5 @@
 	ui = auto
 [pull]
 	rebase = false
+[alias]
+	unstage = reset HEAD --
