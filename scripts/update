@@ -35,13 +35,18 @@ softwareupdate -i -a
 echo
 
 UPDATING_ECHO "npm packages"
-npm outdated -g --depth=0
-echo
-npm update -g
+outdated_npm_packages=$(npm outdated -g --depth=0)
+if [ -z "$outdated_npm_packages" ]; then
+    echo "Global npm packages are up to date."
+else
+    echo "$outdated_npm_packages"
+    echo
+    npm update -g
+fi
 echo
 
 UPDATING_ECHO "pip"
-pip install --upgrade pip
+pip3 install --upgrade pip
 echo
 
 UPDATING_ECHO "zsh"

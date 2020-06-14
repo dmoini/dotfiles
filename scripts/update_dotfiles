@@ -28,7 +28,7 @@ npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print
 mv npm-global-packages.txt "${DOTFILES_DIR}/npm/"
 
 COPYING_ECHO "pip"
-pip freeze > pip-packages.txt
+pip3 freeze > pip-packages.txt
 mv pip-packages.txt "${DOTFILES_DIR}/pip/"
 
 COPYING_ECHO "script"
