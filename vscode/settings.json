@@ -1,137 +1,128 @@
 {
-    "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "git.confirmSync": false,
-    "workbench.colorCustomizations": {
-        // "terminal.foreground": "#fff",
-        // "terminal.background": "#000",
-        // "terminalCursor.foreground": "#00ffff"
-        "terminal.background": "#000000",
-        "terminal.foreground": "#FFF",
-        "terminalCursor.background": "#00FFFF",
-        "terminalCursor.foreground": "#00FFFF",
-        "terminal.ansiBlack": "#000000",
-        "terminal.ansiBlue": "#3F00FC",
-        "terminal.ansiBrightBlack": "#808080",
-        "terminal.ansiBrightBlue": "#3F00FC",
-        "terminal.ansiBrightCyan": "#00BBFF",
-        "terminal.ansiBrightGreen": "#1FB714",
-        "terminal.ansiBrightMagenta": "#4700A5",
-        "terminal.ansiBrightRed": "#DD0907",
-        "terminal.ansiBrightWhite": "#FFFFFF",
-        "terminal.ansiBrightYellow": "#FBF305",
-        "terminal.ansiCyan": "#00BBFF",
-        "terminal.ansiGreen": "#1FB714",
-        "terminal.ansiMagenta": "#ff00aa",
-        "terminal.ansiRed": "#DD0907",
-        "terminal.ansiWhite": "#C0C0C0",
-        "terminal.ansiYellow": "#FBF305"
+  "C_Cpp.updateChannel": "Insiders",
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "breadcrumbs.enabled": false,
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ],
+  "cSpell.userWords": ["marymount", "moini", "suboptimally"],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.fontWeight": "bold",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 4,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.autoSave": "off",
+  "git.confirmSync": false,
+  "go.lintFlags": [
+    "--exclude=exported (const|type|method|function|var) [\\w.]+ should have comment (\\(or a comment on this block\\) )?or be unexported"
+  ],
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "java.semanticHighlighting.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveshare.featureSet": "stable",
+  "prettier.arrowParens": "always",
+  "prettier.packageManager": "yarn",
+  "prettier.trailingComma": "es5",
+  "python.jediEnabled": false,
+  "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
+  "sync.forceUpload": true,
+  "sync.gist": "51242dfcdbc3a97db95cab98d42ce7c7",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.scrollback": 10000,
+  "todohighlight.keywords": [
+    {
+      "text": "TODO",
+      "color": "cyan",
+      "backgroundColor": "rgba(0,0,0,0)"
     },
-    "terminal.integrated.cursorBlinking": true,
-    "liveServer.settings.CustomBrowser": "chrome",
-    "editor.fontWeight": "bold",
-    "workbench.activityBar.visible": true,
-    "explorer.confirmDelete": false,
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
-    "window.zoomLevel": -1,
-    "files.autoSave": "off",
-    "explorer.confirmDragAndDrop": false,
-    "haskell.hlint.executablePath": "/Users/donovanmoini/Library/Haskell/bin/hlint",
-    "cSpell.userWords": [
-        "marymount",
-        "moini",
-        "suboptimally"
-    ],
-    "latex-workshop.view.pdf.viewer": "tab",
-    "[python]": {},
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "python.jediEnabled": false,
-    "editor.tabSize": 4,
-    "[javascript]": {
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "[markdown]": {
-        "editor.wordWrap": "wordWrapColumn",
-        "editor.wordWrapColumn": 80,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-    "liveshare.featureSet": "stable",
-    "latex-workshop.message.update.show": false,
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "sync.gist": "51242dfcdbc3a97db95cab98d42ce7c7",
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "go",
-        "handlebars",
-        "html",
-        "jade",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "pug",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yml"
-    ],
-    "C_Cpp.updateChannel": "Insiders",
-    "terminal.integrated.rendererType": "dom",
-    "breadcrumbs.enabled": false,
-    "terminal.integrated.scrollback": 10000,
-    "vsicons.dontShowNewVersionMessage": true,
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "prettier.trailingComma": "es5",
-    "vsicons.projectDetection.autoReload": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "todohighlight.keywords": [
-        {
-            "text": "TODO",
-            "color": "cyan",
-            "backgroundColor": "rgba(0,0,0,0)"
-        },
-        {
-            "text": "NOTE",
-            "color": "cyan",
-            "backgroundColor": "rgba(0,0,0,0)"
-        }
-    ],
-    "sync.forceUpload": true,
-    "go.lintFlags": [
-        "--exclude=exported (const|type|method|function|var) [\\w.]+ should have comment (\\(or a comment on this block\\) )?or be unexported"
-    ],
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "liveServer.settings.donotVerifyTags": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "prettier.arrowParens": "always",
-    "prettier.packageManager": "yarn",
-    "workbench.iconTheme": "material-icon-theme",
-    "java.semanticHighlighting.enabled": true,
-    "editor.formatOnSave": true,
-    "workbench.colorTheme": "Flatland Monokai",
+    {
+      "text": "NOTE",
+      "color": "cyan",
+      "backgroundColor": "rgba(0,0,0,0)"
+    }
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsicons.projectDetection.autoReload": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.zoomLevel": -1,
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "terminal.background": "#000000",
+    "terminal.foreground": "#FFF",
+    "terminalCursor.background": "#00FFFF",
+    "terminalCursor.foreground": "#00FFFF",
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiBlue": "#3F00FC",
+    "terminal.ansiBrightBlack": "#808080",
+    "terminal.ansiBrightBlue": "#3F00FC",
+    "terminal.ansiBrightCyan": "#00BBFF",
+    "terminal.ansiBrightGreen": "#1FB714",
+    "terminal.ansiBrightMagenta": "#4700A5",
+    "terminal.ansiBrightRed": "#DD0907",
+    "terminal.ansiBrightWhite": "#FFFFFF",
+    "terminal.ansiBrightYellow": "#FBF305",
+    "terminal.ansiCyan": "#00BBFF",
+    "terminal.ansiGreen": "#1FB714",
+    "terminal.ansiMagenta": "#ff00aa",
+    "terminal.ansiRed": "#DD0907",
+    "terminal.ansiWhite": "#C0C0C0",
+    "terminal.ansiYellow": "#FBF305"
+  },
+  "workbench.colorTheme": "Flatland Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile"
 }
