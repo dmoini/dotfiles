@@ -61,3 +61,10 @@ o() {
         open "$@";
     fi;
 }
+
+# Allows user to install global pip package
+syspip() {
+    PIP_REQUIRE_VIRTUALENV=""
+    pip3 "$@"
+    PIP_REQUIRE_VIRTUALENV=true
+}

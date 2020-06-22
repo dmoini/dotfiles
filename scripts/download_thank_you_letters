@@ -1,25 +1,29 @@
 #!/bin/bash
 
 CURR_DIR=$(pwd)
+TY_LETTERS_DIR="$HOME/Google Drive/LMU/Thank You Letters/2019-2020"
 GDRIVE_CLI_DIR="$HOME/code/gdrive-cli"
 DOWNLOAD_DIR="$HOME/Desktop/TY"
 
 if ! [[ -d "$DOWNLOAD_DIR" ]]
 then
-    echo "Creating folder to dowload files..."
+    echo "Creating download folder..."
     mkdir "$DOWNLOAD_DIR"
 fi
 
+cd "$TY_LETTERS_DIR"
 for f in * ; do
     FIRST_NAME=$(echo "$f" | sed 's/\ .*//g')
     FILE_NAME="Thank You ${FIRST_NAME} ❤️"
     DOC_ID=$(cat "$f" | jq '.doc_id' | sed -E 's/\"//g')
     cd "$GDRIVE_CLI_DIR"
     echo "Downloading ${FIRST_NAME}'s thank you letter..."
-    source env/bin/activate
+    source venv/bin/activate
     python3 "${GDRIVE_CLI_DIR}/gdrive/gdrive.py" download -i "$DOC_ID" -n "$FILE_NAME" -d "$DOWNLOAD_DIR"
     deactivate
-    cd "$CURR_DIR"
+    cd "$TY_LETTERS_DIR"
     echo
 done
+cd "$CURR_DIR"
+
 echo "Done :)"

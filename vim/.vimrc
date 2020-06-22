@@ -8,7 +8,6 @@ Plug 'tomasr/molokai'
 call plug#end()
 
 " Syntax coloring
-filetype plugin indent on
 syntax enable
 
 " Color schemes
@@ -19,15 +18,10 @@ set number
 set mouse=a
 set cursorline
 
+filetype plugin indent on
 " Set tabs to 4 spaces
-" set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-" Tab indentation for each language
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd Filetype ruby setlocal ts=4 sts=4 sw=4 expandtab
-" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd Filetype java setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd Filetype c setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd Filetype elm setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd Filetype notes setlocal ts=2 sts=2 sw=2 expandtab spell
-" autocmd Filetype text setlocal spell
+set tabstop=4
+" When indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab

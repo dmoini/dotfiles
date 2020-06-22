@@ -15,6 +15,7 @@ DISABLE_UPDATE_PROMPT=true
 plugins=(
   colorize
   you-should-use
+  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 

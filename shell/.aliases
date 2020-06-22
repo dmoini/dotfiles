@@ -62,6 +62,7 @@ alias vz="$EDITOR ~/.zshrc"
 # Miscellaneous
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 alias amplify="cd $HOME/code/amplify"
+alias cx="chmod +x"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias fcl="fortune -a | cowsay | lolcat"
 alias GO_PRACTICE="cd $HOME/code/lib/go/src/github.com/dmoini/go-practice"

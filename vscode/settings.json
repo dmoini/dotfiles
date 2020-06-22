@@ -77,7 +77,7 @@
   "prettier.trailingComma": "es5",
   "python.jediEnabled": false,
   "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
-  "sync.forceUpload": true,
+  "sync.forceUpload": false,
   "sync.gist": "51242dfcdbc3a97db95cab98d42ce7c7",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.rendererType": "dom",
@@ -124,5 +124,6 @@
   },
   "workbench.colorTheme": "Flatland Monokai",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "python.languageServer": "Microsoft"
 }
