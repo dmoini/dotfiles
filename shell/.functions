@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# `code` with no arguments opens the current directory, otherwise opens the given location
+# Opens current directory in VSCode with no arguments, otherwise opens the given location
 c() {
     if [ $# -eq 0 ]; then
         code .;
@@ -90,7 +90,12 @@ npm-global-packages() {
     npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}'
 }
 
-# `o` with no arguments opens the current directory, otherwise opens the given location
+# Returns number of files/folders in a folder
+numfiles() {
+    echo $(ls $1 | wc -l)
+}
+
+# Opens the current directory with no arguments, otherwise opens the given location
 o() {
     if [ $# -eq 0 ]; then
         open .;
