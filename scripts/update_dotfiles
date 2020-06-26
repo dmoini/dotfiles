@@ -9,45 +9,76 @@ GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-COPYING_ECHO() {
-    echo -e "${NC}Copying $1 files...${NC}"
+updateEcho() {
+    echo -e "${NC}Updating $1 files...${NC}"
 }
 
-COPYING_ECHO "git"
-cp "${HOME}/.gitconfig" "${DOTFILES_DIR}/git"
+updateGit() {
+    updateEcho "Git"
+    cp "${HOME}/.gitconfig" "${DOTFILES_DIR}/git"
+}
 
-COPYING_ECHO "homebrew"
-# If Brewfile already exists, delete it and create new one
-if [ -f Brewfile ]; then
-    rm Brewfile
-fi
-brew bundle dump
-mv Brewfile "${DOTFILES_DIR}/homebrew"
+updateHomebrew() {
+    updateEcho "Homebrew"
+    # If Brewfile already exists, delete it and create new one
+    if [ -f Brewfile ]; then rm Brewfile; fi
+    
+    brew bundle dump
+    mv Brewfile "${DOTFILES_DIR}/homebrew"
+}
 
-# To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
-COPYING_ECHO "npm"
-npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
-mv npm-global-packages.txt "${DOTFILES_DIR}/npm"
+updateNPM() {
+    updateEcho "NPM"
+    # To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
+    npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
+    mv npm-global-packages.txt "${DOTFILES_DIR}/npm"
+}
 
-COPYING_ECHO "pip"
-syspip freeze > pip-packages.txt
-mv pip-packages.txt "${DOTFILES_DIR}/pip"
+updatePip() {
+    updateEcho "Pip"
+    syspip freeze > pip-packages.txt
+    mv pip-packages.txt "${DOTFILES_DIR}/pip"
+}
 
-COPYING_ECHO "script"
-cp -r "${HOME}/code/scripts" "${DOTFILES_DIR}"
+updateScripts() {
+    updateEcho "script"
+    cp -r "${HOME}/code/scripts" "${DOTFILES_DIR}"
+}
 
-COPYING_ECHO "shell"
-cp "${HOME}/.aliases" "${DOTFILES_DIR}/shell"
-cp "${HOME}/.exports" "${DOTFILES_DIR}/shell"
-cp "${HOME}/.functions" "${DOTFILES_DIR}/shell"
+updateShell() {
+    updateEcho "shell"
+    cp "${HOME}/.aliases" "${DOTFILES_DIR}/shell"
+    cp "${HOME}/.exports" "${DOTFILES_DIR}/shell"
+    cp "${HOME}/.functions" "${DOTFILES_DIR}/shell"
+}
 
-COPYING_ECHO "vim"
-cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim"
-rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .git --exclude .DS_Store &> /dev/null
+updateVim() {
+    updateEcho "Vim"
+    cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim"
+    rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .git --exclude .DS_Store &> /dev/null
+}
 
-COPYING_ECHO "vscode"
-cp "${VSCODE_DIR}/settings.json" "${DOTFILES_DIR}/vscode"
-cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
+updateVSCode() {
+    updateEcho "VSCode"
+    cp "${VSCODE_DIR}/settings.json" "${DOTFILES_DIR}/vscode"
+    cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
+}
 
-COPYING_ECHO "zsh"
-cp "${HOME}/.zshrc" "${DOTFILES_DIR}/zsh/"
+updateZsh() {
+    updateEcho "Zsh"
+    cp "${HOME}/.zshrc" "${DOTFILES_DIR}/zsh/"
+}
+
+updateAll() {
+    updateGit
+    updateHomebrew
+    updateNPM
+    updatePip
+    updateScripts
+    updateShell
+    updateVim
+    updateVSCode
+    updateZsh
+}
+
+updateAll
