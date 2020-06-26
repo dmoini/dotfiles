@@ -7,60 +7,122 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 CURR_DIR=$(pwd)
 
-UPDATING_ECHO() {
+updateEcho() {
     echo -e "${CYAN}Updating $1...${NC}"
 }
 
-UPDATING_ECHO "appstore apps"
-mas upgrade
-echo
+isNotInstalled() {
+    for cmd in "$@"; do
+        if ! which "$cmd" &>/dev/null; then
+            echo -e "$cmd is not installed\n"
+            return 0
+        fi
+    done
+    return 1
+}
 
-UPDATING_ECHO "dotfiles"
-update_dotfiles
-echo
+updateHomebrew() {
+    if isNotInstalled "brew"; then return; fi
 
-UPDATING_ECHO "git repositories"
-cd "${HOME}/code"
-update_git_repos
-cd $CURR_DIR
-echo
-
-UPDATING_ECHO "Homebrew"
-brew update
-brew upgrade
-brew cask upgrade
-brew cleanup
-echo
-
-UPDATING_ECHO "macOS"
-softwareupdate -i -a
-echo
-
-UPDATING_ECHO "npm packages"
-outdated_npm_packages=$(npm outdated -g --depth=0)
-if [ -z "$outdated_npm_packages" ]; then
-    echo "Global npm packages are up to date."
-else
-    echo "$outdated_npm_packages"
+    updateEcho "Homebrew"
+    brew update
+    brew upgrade
+    brew cleanup -s
     echo
-    npm update -g
-fi
-echo
 
-UPDATING_ECHO "pip and pip packages"
-syspip install --upgrade pip
-echo
-outdated_pip_packages=$(syspip list --outdated)
-if [ -z "$outdated_pip_packages" ]; then
-    echo "Global pip packages are up to date."
-else
-    echo "$outdated_pip_packages"
+    updateEcho "Homebrew Casks"
+    brew cask outdated
+    brew cask upgrade
+    brew cleanup -s
     echo
-    syspip install --upgrade $(syspip list --outdated 2> /dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
-fi
-echo
+}
 
-UPDATING_ECHO "zsh"
-env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+updateMas() {
+    if isNotInstalled "mas"; then return; fi
 
-nyan
+    updateEcho "App Store Applications"
+    mas outdated
+    mas upgrade
+    echo
+}
+
+updateDotfiles() {
+    if isNotInstalled "git"; then return; fi
+
+    updateEcho "Dotfiles"
+    update_dotfiles
+    echo
+}
+
+updateGitHubRepositories() {
+    if isNotInstalled "git" "hub"; then return; fi
+
+    updateEcho "GitHub Repositories"
+    cd "${HOME}/code"
+    update_git_repos
+    cd $CURR_DIR
+}
+
+updateMacOS() {
+    updateEcho "macOS"
+    softwareupdate -i -a
+    echo
+}
+
+updateNPM() {
+    if isNotInstalled "npm"; then return; fi
+
+    updateEcho "NPM Packages"
+    outdated_npm_packages=$(npm outdated -g --depth=0)
+    if [ -z "$outdated_npm_packages" ]; then
+        echo "Global npm packages are up to date"
+    else
+        echo "$outdated_npm_packages"
+        echo
+        npm update -g
+    fi
+    echo
+}
+
+updatePip() {
+    if isNotInstalled "pip"; then return; fi
+
+    updateEcho "Pip"
+    syspip install --upgrade pip
+    echo
+
+    updateEcho "Pip Packages"
+    outdated_pip_packages=$(syspip list --outdated)
+    if [ -z "$outdated_pip_packages" ]; then
+        echo "Global pip packages are up to date"
+    else
+        echo "$outdated_pip_packages"
+        echo
+        syspip install --upgrade $(syspip list --outdated 2> /dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
+    fi
+    echo
+}
+
+updateOhMyZsh() {
+    if ! [[ -d $HOME/.oh-my-zsh ]]; then
+        echo -e "Oh My Zsh is not installed\n";
+        return;
+    fi
+
+    updateEcho "Oh My Zsh"
+    env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+}
+
+updateAll() {
+    updateHomebrew
+    updateMas
+    updateDotfiles
+    updateGitHubRepositories
+    updateMacOS
+    updateNPM
+    updatePip
+    updateOhMyZsh
+    nyan
+}
+
+updateAll
