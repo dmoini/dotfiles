@@ -16,14 +16,14 @@ export MONGO_PATH="/usr/local/mongodb"
 export PATH="$PATH:$MONGO_PATH/bin"
 
 # Python
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+# export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
+# export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 # Personal scripts
 export PATH="$PATH:$HOME/code/scripts"
 
 # Pip
-export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_REQUIRE_VIRTUALENV=true
 
 # Zsh
 export UPDATE_ZSH_DAYS=7

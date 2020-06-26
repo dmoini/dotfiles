@@ -8,8 +8,8 @@ source ~/.localrc
 ZSH_THEME="robbyrussell"
 ZSH_COLORIZE_STYLE="fruity"
 
-# Uncomment the following line to automatically update oh-my-zsh.
-DISABLE_UPDATE_PROMPT=true
+# Disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
 
 # Plugins
 plugins=(
