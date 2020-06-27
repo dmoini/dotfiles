@@ -55,11 +55,11 @@ updateShell() {
 updateVim() {
     updateEcho "Vim"
     cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim"
-    rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .git --exclude .DS_Store &> /dev/null
+    rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .git --exclude .DS_Store --exclude .netrwhist &>/dev/null
 }
 
 updateVSCode() {
-    updateEcho "VSCode"
+    updateEcho "VS Code"
     cp "${VSCODE_DIR}/settings.json" "${DOTFILES_DIR}/vscode"
     cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
 }
