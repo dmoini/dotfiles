@@ -2,9 +2,13 @@
 
 # store the current dir
 CURR_DIR=$(pwd)
+CODE_DIR="$HOME/code"
 
-# Let the person running the script know what's going on.
-echo -e "\n\033[1mPulling in latest changes for all repositories...\033[0m\n"
+# Go to the directory that holds all of my code
+cd "$CODE_DIR"
+
+# Let the user know what's going on.
+echo -e "\033[1mPulling in latest changes for all repositories...\033[0m"
 
 # Find all git repositories and update it to the master latest revision
 for i in $(find . -name ".git" | cut -c 3-); do
@@ -22,7 +26,9 @@ for i in $(find . -name ".git" | cut -c 3-); do
     hub sync
 
     # Lets get back to the CURR_DIR
-    cd $CURR_DIR
+    cd "$CODE_DIR"
 done
 
+# Return to the original directory and let the user know the script is done
+cd "$CURR_DIR"
 echo -e "\n\033[32mComplete!\033[0m\n"

@@ -1,6 +1,4 @@
 add-gitignore
-eslint
-eslint-plugin-react
 expo-cli
 fast-cli
 gh-home
@@ -13,5 +11,4 @@ sort-package-json
 speed-test
 tldr
 trash-cli
-typescript
 undollar

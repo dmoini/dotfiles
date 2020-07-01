@@ -4,20 +4,27 @@ CURR_DIR=$(pwd)
 TY_LETTERS_DIR="$HOME/Google Drive/LMU/Thank You Letters/2019-2020"
 GDRIVE_CLI_DIR="$HOME/code/gdrive-cli"
 DOWNLOAD_DIR="$HOME/Desktop/TY"
+IGNORE_DOC_ID=("1AF2L8IvwnjCGi8dwF9JwKSRUm8yHLl9933LtoVAdTFA")
+
 
 if ! [[ -d "$DOWNLOAD_DIR" ]]
 then
-    echo "Creating download folder..."
+    echo -e "Creating download folder...\n"
     mkdir "$DOWNLOAD_DIR"
 fi
 
 cd "$TY_LETTERS_DIR"
 for f in * ; do
+    DOC_ID=$(cat "$f" | jq '.doc_id' | sed -E 's/\"//g')
+    if [[ "${IGNORE_DOC_ID[@]}" =~ "${DOC_ID}" ]]; then
+        continue
+    fi
+    
     FIRST_NAME=$(echo "$f" | sed 's/\ .*//g')
     FILE_NAME="Thank You ${FIRST_NAME} ❤️"
-    DOC_ID=$(cat "$f" | jq '.doc_id' | sed -E 's/\"//g')
     cd "$GDRIVE_CLI_DIR"
-    echo "Downloading ${FIRST_NAME}'s thank you letter..."
+    FULL_NAME=$(echo "$f" | sed 's/\.gdoc//g')
+    echo "Downloading ${FULL_NAME}'s thank you letter..."
     source venv/bin/activate
     python3 "${GDRIVE_CLI_DIR}/gdrive/gdrive.py" download -i "$DOC_ID" -n "$FILE_NAME" -d "$DOWNLOAD_DIR"
     deactivate

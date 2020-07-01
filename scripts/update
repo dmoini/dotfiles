@@ -2,8 +2,7 @@
 
 source ~/.functions
 
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
+CYAN='\033[0;96m'
 NC='\033[0m'
 CURR_DIR=$(pwd)
 
@@ -54,13 +53,11 @@ updateDotfiles() {
     echo
 }
 
-updateGitHubRepositories() {
+updateLocalGitHubRepositories() {
     if isNotInstalled "git" "hub"; then return; fi
 
     updateEcho "GitHub Repositories"
-    cd "${HOME}/code"
     update_git_repos
-    cd $CURR_DIR
 }
 
 updateMacOS() {
@@ -98,7 +95,7 @@ updatePip() {
     else
         echo "$outdated_pip_packages"
         echo
-        syspip install --upgrade $(syspip list --outdated 2> /dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
+        syspip install --upgrade $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
     echo
 }
@@ -117,7 +114,7 @@ updateAll() {
     updateHomebrew
     updateMas
     updateDotfiles
-    updateGitHubRepositories
+    updateLocalGitHubRepositories
     updateMacOS
     updateNPM
     updatePip
