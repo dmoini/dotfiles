@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Editor
-export EDITOR=$(which vim)
+export EDITOR="vim"
+export VISUAL="vim"
 
 # Go
 export GOPATH="$HOME/code/lib/go"
@@ -23,7 +24,7 @@ export PATH="$PATH:$MONGO_PATH/bin"
 export PATH="$PATH:$HOME/code/scripts"
 
 # Pip
-# export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
 
 # Zsh
 export UPDATE_ZSH_DAYS=7

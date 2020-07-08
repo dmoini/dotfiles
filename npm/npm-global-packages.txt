@@ -1,12 +1,10 @@
 add-gitignore
-expo-cli
 fast-cli
 gh-home
 is-online-cli
 is-up-cli
 node-gyp
 npm
-react-native-cli
 sort-package-json
 speed-test
 tldr

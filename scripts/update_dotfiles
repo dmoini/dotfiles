@@ -10,7 +10,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 updateEcho() {
-    echo -e "${NC}Updating $1 files...${NC}"
+    echo -e "${NC}Updating $1 files${NC}"
 }
 
 updateGit() {

@@ -21,7 +21,7 @@ for f in * ; do
     fi
     
     FIRST_NAME=$(echo "$f" | sed 's/\ .*//g')
-    FILE_NAME="Thank You ${FIRST_NAME} ❤️"
+    FILE_NAME="Thank You ${FIRST_NAME}"
     cd "$GDRIVE_CLI_DIR"
     FULL_NAME=$(echo "$f" | sed 's/\.gdoc//g')
     echo "Downloading ${FULL_NAME}'s thank you letter..."

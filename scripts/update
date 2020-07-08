@@ -28,12 +28,6 @@ updateHomebrew() {
     brew upgrade
     brew cleanup -s
     echo
-
-    updateEcho "Homebrew Casks"
-    brew cask outdated
-    brew cask upgrade
-    brew cleanup -s
-    echo
 }
 
 updateMas() {
@@ -85,7 +79,7 @@ updatePip() {
     if isNotInstalled "pip"; then return; fi
 
     updateEcho "Pip"
-    syspip install --upgrade pip
+    syspip install -U pip
     echo
 
     updateEcho "Pip Packages"
@@ -95,7 +89,7 @@ updatePip() {
     else
         echo "$outdated_pip_packages"
         echo
-        syspip install --upgrade $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
+        syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
     echo
 }

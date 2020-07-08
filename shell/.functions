@@ -82,6 +82,21 @@ glf() {
     git log --all --grep="$1";
 }
 
+
+# Renames branch from old_branch to new_branch
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+grename () {
+	if [[ -z "$1" || -z "$2" ]]; then
+		echo "Usage: $0 old_branch new_branch"
+		return 1
+	fi
+    git branch -m "$1" "$2"
+    if git push origin :"$1"; then
+        git push --set-upstream origin "$2"
+    fi
+}
+
+
 # Track all remote branches
 gtarb() {
     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
