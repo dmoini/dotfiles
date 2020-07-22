@@ -7,21 +7,20 @@ export VISUAL="vim"
 # Go
 export GOPATH="$HOME/code/lib/go"
 export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$GOPATH/bin:$PATH"
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
 
 # Mongo
 export MONGO_PATH="/usr/local/mongodb"
-export PATH="$PATH:$MONGO_PATH/bin"
+export PATH="$MONGO_PATH/bin:$PATH"
 
 # Python
-# export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
-# export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+# export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 
 # Personal scripts
-export PATH="$PATH:$HOME/code/scripts"
+export PATH="$HOME/code/scripts:$PATH"
 
 # Pip
 export PIP_REQUIRE_VIRTUALENV=true
@@ -31,4 +30,4 @@ export UPDATE_ZSH_DAYS=7
 export ZSH="$HOME/.oh-my-zsh"
 
 # Miscellaneous
-export PATH="$PATH:/usr/local/sbin"
+export PATH="/usr/local/sbin:$PATH"

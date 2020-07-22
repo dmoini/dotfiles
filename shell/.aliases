@@ -54,7 +54,6 @@ alias lpass-passclip="lpass show --password -c"
 alias dvenv="deactivate"
 alias mvenv="virtualenv venv"
 alias venv="source venv/bin/activate"
-alias pip_upgrade="pip3 install --upgrade pip"
 
 # Shell
 alias sz="source ~/.zshrc"

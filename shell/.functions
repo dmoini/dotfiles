@@ -46,7 +46,7 @@ extract() {
 }
 
 # Shorthand function for `find`
-function f() {
+f() {
     find . -name "$1" 2>/dev/null | grep -v "Permission denied"
 }
 
@@ -102,6 +102,15 @@ gtarb() {
     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
         git branch --track ${i#remotes/origin/} $i;
     done
+}
+
+# Opens current directory in IntelliJ IDEA with no arguments, otherwise opens the given location
+i() {
+    if [ $# -eq 0 ]; then
+        idea .;
+    else
+        idea "$@";
+    fi;
 }
 
 # Lists globally installed npm packages
