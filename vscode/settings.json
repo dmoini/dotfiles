@@ -125,5 +125,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "newUntitledFile",
   "python.languageServer": "Microsoft",
-  "python.defaultInterpreterPath": "/usr/local/opt/python/bin/python3.7"
+  "python.defaultInterpreterPath": "/usr/local/opt/python/bin/python3.7",
+  "git.alwaysSignOff": true
 }

@@ -1,6 +1,8 @@
 add-gitignore
+emoj
 fast-cli
 gh-home
+gtop
 is-online-cli
 is-up-cli
 node-gyp
