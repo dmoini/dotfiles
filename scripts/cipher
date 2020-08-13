@@ -2,8 +2,7 @@
 #encrypt files with aes-256-cbc cipher using openssl
 
 #encrypt files
-if [ $1 == "-e" ];
-then
+if [ $1 == "-e" ]; then
     if [ -f "$2" ]; then
         openssl aes-256-cbc -a -e -salt -in "$2" -out "$2.aes"
     else

@@ -2,15 +2,15 @@
 
 source ~/.functions
 
-CYAN='\033[0;96m'
+LCYAN='\033[0;96m'
 NC='\033[0m'
 CURR_DIR=$(pwd)
 
 updateEcho() {
-    echo -e "${CYAN}Updating $1...${NC}"
+    echo -e "${LCYAN}Updating $1...${NC}"
 }
 
-isNotInstalled() {
+commandIsNotInstalled() {
     for cmd in "$@"; do
         if ! which "$cmd" &>/dev/null; then
             echo -e "$cmd is not installed\n"
@@ -20,8 +20,30 @@ isNotInstalled() {
     return 1
 }
 
+directoryIsNotInstalled() {
+    for dir in "$@"; do
+        if ! [[ -d $dir ]]; then
+            echo -e "$dir is not found\n";
+            return 0;
+        fi
+    done
+    return 1
+}
+
+isNotInstalled() {
+    if [ "$1" == "-c" ]; then
+        if commandIsNotInstalled "${@:2}"; then return 0; fi 
+    elif [ "$1" == "-d" ]; then
+        if directoryIsNotInstalled "${@:2}"; then return 0; fi
+    else
+        echo "Usage for commands: isNotInstalled -c [command1] [command2]..."
+        echo "Usage for directories: isNotInstalled -d [directory1] [directory2]..."
+    fi
+    return 1
+}
+
 updateHomebrew() {
-    if isNotInstalled "brew"; then return; fi
+    if isNotInstalled -c brew; then return; fi
 
     updateEcho "Homebrew"
     brew update
@@ -31,7 +53,7 @@ updateHomebrew() {
 }
 
 updateMas() {
-    if isNotInstalled "mas"; then return; fi
+    if isNotInstalled -c mas; then return; fi
 
     updateEcho "App Store Applications"
     mas outdated
@@ -40,7 +62,7 @@ updateMas() {
 }
 
 updateDotfiles() {
-    if isNotInstalled "git"; then return; fi
+    if isNotInstalled -c git; then return; fi
 
     updateEcho "Dotfiles"
     update_dotfiles
@@ -48,7 +70,7 @@ updateDotfiles() {
 }
 
 updateLocalGitHubRepositories() {
-    if isNotInstalled "git" "hub"; then return; fi
+    if isNotInstalled -c git hub; then return; fi
 
     updateEcho "GitHub Repositories"
     update_git_repos
@@ -61,7 +83,7 @@ updateMacOS() {
 }
 
 updateNPM() {
-    if isNotInstalled "npm"; then return; fi
+    if isNotInstalled -c npm; then return; fi
 
     updateEcho "NPM Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
@@ -76,7 +98,7 @@ updateNPM() {
 }
 
 updatePip() {
-    if isNotInstalled "pip"; then return; fi
+    if isNotInstalled -c pip; then return; fi
 
     updateEcho "Pip"
     syspip install -U pip
@@ -87,18 +109,14 @@ updatePip() {
     if [ -z "$outdated_pip_packages" ]; then
         echo "Global pip packages are up to date"
     else
-        echo "$outdated_pip_packages"
-        echo
+        echo -e "$outdated_pip_packages\n"
         syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
     echo
 }
 
 updateOhMyZsh() {
-    if ! [[ -d $HOME/.oh-my-zsh ]]; then
-        echo -e "Oh My Zsh is not installed\n";
-        return;
-    fi
+    if isNotInstalled -d $HOME/.oh-my-zsh; then return; fi
 
     updateEcho "Oh My Zsh"
     env ZSH=$ZSH sh $ZSH/tools/upgrade.sh

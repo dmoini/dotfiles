@@ -49,6 +49,9 @@ alias guo="git push -u origin"
 # LastPass CLI
 alias lpass-passclip="lpass show --password -c"
 
+# Node
+alias nv="node --version"
+
 # Python
 alias dvenv="deactivate"
 alias mvenv="virtualenv venv"
