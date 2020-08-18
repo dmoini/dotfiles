@@ -18,14 +18,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# Zplugins
 source $ZSH/oh-my-zsh.sh
-
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin installer's chunk
 
 # tabtab source for packages
 # uninstall by removing these lines

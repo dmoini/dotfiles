@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Folders
-alias amplify="cd $HOME/code/amplify"
 alias dotfiles="cd $HOME/code/dotfiles"
 alias GO_PRACTICE="cd $HOME/code/lib/go/src/github.com/dmoini/go-practice"
 
@@ -45,6 +44,10 @@ alias gstp="git stash pop"
 alias gsts="git stash save"
 alias gu="git push"
 alias guo="git push -u origin"
+
+# Homebrew
+alias bci="brew cask install"
+alias bcu="brew cask uninstall"
 
 # LastPass CLI
 alias lpass-passclip="lpass show --password -c"

@@ -10,17 +10,17 @@ updateEcho() {
     echo -e "${LCYAN}Updating $1...${NC}"
 }
 
-commandIsNotInstalled() {
+commandNotFound() {
     for cmd in "$@"; do
         if ! which "$cmd" &>/dev/null; then
-            echo -e "$cmd is not installed\n"
+            echo -e "$cmd is not found\n"
             return 0
         fi
     done
     return 1
 }
 
-directoryIsNotInstalled() {
+directoryNotFound() {
     for dir in "$@"; do
         if ! [[ -d $dir ]]; then
             echo -e "$dir is not found\n";
@@ -30,20 +30,20 @@ directoryIsNotInstalled() {
     return 1
 }
 
-isNotInstalled() {
+isNotFound() {
     if [ "$1" == "-c" ]; then
-        if commandIsNotInstalled "${@:2}"; then return 0; fi 
+        if commandNotFound "${@:2}"; then return 0; fi 
     elif [ "$1" == "-d" ]; then
-        if directoryIsNotInstalled "${@:2}"; then return 0; fi
+        if directoryNotFound "${@:2}"; then return 0; fi
     else
-        echo "Usage for commands: isNotInstalled -c [command1] [command2]..."
-        echo "Usage for directories: isNotInstalled -d [directory1] [directory2]..."
+        echo "Usage for commands: isNotFound -c [command1] [command2]..."
+        echo "Usage for directories: isNotFound -d [directory1] [directory2]..."
     fi
     return 1
 }
 
 updateHomebrew() {
-    if isNotInstalled -c brew; then return; fi
+    if isNotFound -c brew; then return; fi
 
     updateEcho "Homebrew"
     brew update
@@ -53,7 +53,7 @@ updateHomebrew() {
 }
 
 updateMas() {
-    if isNotInstalled -c mas; then return; fi
+    if isNotFound -c mas; then return; fi
 
     updateEcho "App Store Applications"
     mas outdated
@@ -62,7 +62,7 @@ updateMas() {
 }
 
 updateDotfiles() {
-    if isNotInstalled -c git; then return; fi
+    if isNotFound -c git; then return; fi
 
     updateEcho "Dotfiles"
     update_dotfiles
@@ -70,7 +70,7 @@ updateDotfiles() {
 }
 
 updateLocalGitHubRepositories() {
-    if isNotInstalled -c git hub; then return; fi
+    if isNotFound -c git hub; then return; fi
 
     updateEcho "GitHub Repositories"
     update_git_repos
@@ -83,7 +83,7 @@ updateMacOS() {
 }
 
 updateNPM() {
-    if isNotInstalled -c npm; then return; fi
+    if isNotFound -c npm; then return; fi
 
     updateEcho "NPM Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
@@ -98,7 +98,7 @@ updateNPM() {
 }
 
 updatePip() {
-    if isNotInstalled -c pip; then return; fi
+    if isNotFound -c pip pip3; then return; fi
 
     updateEcho "Pip"
     syspip install -U pip
@@ -116,7 +116,7 @@ updatePip() {
 }
 
 updateOhMyZsh() {
-    if isNotInstalled -d $HOME/.oh-my-zsh; then return; fi
+    if isNotFound -d $HOME/.oh-my-zsh; then return; fi
 
     updateEcho "Oh My Zsh"
     env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
