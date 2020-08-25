@@ -4,5 +4,8 @@
 # Swap files
 *.swp
 
-# Unnecessary file
+# Vim
+.netrwhist
+
+# Miscellaneous
 .DS_Store
