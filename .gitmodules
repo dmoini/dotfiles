@@ -1,0 +1,6 @@
+[submodule "oh-my-zsh/custom/plugins/you-should-use"]
+	path = oh-my-zsh/custom/plugins/you-should-use
+	url = https://github.com/MichaelAquilina/zsh-you-should-use
+[submodule "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
