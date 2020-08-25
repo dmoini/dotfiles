@@ -30,14 +30,18 @@ updateHomebrew() {
 updateNPM() {
     updateEcho "NPM"
     # To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
-    npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > npm-global-packages.txt
-    mv npm-global-packages.txt "${DOTFILES_DIR}/npm"
+    npm-global-packages > "${DOTFILES_DIR}/npm/npm-global-packages.txt"
+}
+
+updateOhMyZsh() {
+    updateEcho "Oh My Zsh"
+    cp "${HOME}/.zshrc" "${DOTFILES_DIR}/oh-my-zsh/"
+    cp -r "${HOME}/.oh-my-zsh/custom" "${DOTFILES_DIR}/oh-my-zsh"
 }
 
 updatePip() {
     updateEcho "Pip"
-    syspip freeze > pip-packages.txt
-    mv pip-packages.txt "${DOTFILES_DIR}/pip"
+    syspip freeze > "${DOTFILES_DIR}/pip/pip-global-packages.txt"
 }
 
 updateScripts() {
@@ -47,7 +51,7 @@ updateScripts() {
 
 updateShell() {
     updateEcho "shell"
-    cp "${HOME}/.aliases" "${DOTFILES_DIR}/shell"
+    cp "${HOME}/.aliases" "${HOME}/.exports" "${HOME}/.functions" "${DOTFILES_DIR}/shell"
     cp "${HOME}/.exports" "${DOTFILES_DIR}/shell"
     cp "${HOME}/.functions" "${DOTFILES_DIR}/shell"
 }
@@ -55,7 +59,7 @@ updateShell() {
 updateVim() {
     updateEcho "Vim"
     cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim"
-    rsync -av --progress "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .git --exclude .DS_Store --exclude .netrwhist &>/dev/null
+    rsync -a "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .DS_Store --exclude .netrwhist &>/dev/null
 }
 
 updateVSCode() {
@@ -64,21 +68,17 @@ updateVSCode() {
     cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
 }
 
-updateZsh() {
-    updateEcho "Zsh"
-    cp "${HOME}/.zshrc" "${DOTFILES_DIR}/zsh/"
-}
-
 updateAll() {
-    updateGit
-    updateHomebrew
-    updateNPM
-    updatePip
+    # updateGit
+    # updateHomebrew
+    # updateNPM
+    # updateOhMyZsh
+    # updatePip
+    
     updateScripts
-    updateShell
-    updateVim
-    updateVSCode
-    updateZsh
+    # updateShell
+    # updateVim
+    # updateVSCode
 }
 
 updateAll
