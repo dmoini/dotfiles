@@ -107,9 +107,9 @@ gtarb() {
 # Opens current directory in IntelliJ IDEA with no arguments, otherwise opens the given location
 i() {
     if [ $# -eq 0 ]; then
-        idea .;
+        open -na "IntelliJ IDEA.app" --args .;
     else
-        idea "$@";
+        open -na "IntelliJ IDEA.app" --args "$@"
     fi;
 }
 

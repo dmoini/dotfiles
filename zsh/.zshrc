@@ -1,7 +1,7 @@
 # Sourcing other files
 source ~/.exports
-source ~/.aliases
 source ~/.functions
+source ~/.aliases
 source ~/.localrc
 
 # Zsh theme
