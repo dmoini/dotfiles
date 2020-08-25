@@ -2,15 +2,19 @@
 
 source ~/.functions
 
+CURR_DIR=$(pwd)
 DOTFILES_DIR="${HOME}/code/dotfiles"
 VSCODE_DIR="${HOME}/Library/Application Support/Code/User"
 
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
-NC='\033[0m'
-
 updateEcho() {
-    echo -e "${NC}Updating $1 files${NC}"
+    echo -e "Updating $1 files"
+}
+
+# TODO: find way to copy over submodules instead of having to add them manually via this function
+gitSubmoduleAdd() {
+    cd $DOTFILES_DIR
+    git submodule add $1 $2 &>/dev/null
+    cd $CURR_DIR
 }
 
 updateGit() {
@@ -36,7 +40,10 @@ updateNPM() {
 updateOhMyZsh() {
     updateEcho "Oh My Zsh"
     cp "${HOME}/.zshrc" "${DOTFILES_DIR}/oh-my-zsh/"
-    cp -r "${HOME}/.oh-my-zsh/custom" "${DOTFILES_DIR}/oh-my-zsh"
+    cp -r "${HOME}/.oh-my-zsh/custom/themes" "${DOTFILES_DIR}/oh-my-zsh/custom"
+
+    gitSubmoduleAdd "https://github.com/MichaelAquilina/zsh-you-should-use" "oh-my-zsh/custom/plugins/you-should-use"
+    gitSubmoduleAdd "https://github.com/zsh-users/zsh-syntax-highlighting" "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 }
 
 updatePip() {
@@ -52,33 +59,34 @@ updateScripts() {
 updateShell() {
     updateEcho "shell"
     cp "${HOME}/.aliases" "${HOME}/.exports" "${HOME}/.functions" "${DOTFILES_DIR}/shell"
-    cp "${HOME}/.exports" "${DOTFILES_DIR}/shell"
-    cp "${HOME}/.functions" "${DOTFILES_DIR}/shell"
 }
 
 updateVim() {
     updateEcho "Vim"
     cp "${HOME}/.vimrc" "${DOTFILES_DIR}/vim"
-    rsync -a "${HOME}/.vim" "${DOTFILES_DIR}/vim" --exclude .DS_Store --exclude .netrwhist &>/dev/null
+    cp -r "${HOME}/.vim/autoload" "${DOTFILES_DIR}/vim/.vim"
+
+    gitSubmoduleAdd "https://github.com/tomasr/molokai" "vim/.vim/plugged/molokai"
+    gitSubmoduleAdd "https://github.com/fmoralesc/molokayo" "vim/.vim/plugged/molokayo"
+    gitSubmoduleAdd "https://github.com/micha/vim-colors-solarized" "vim/.vim/plugged/vim-colors-solarized"
+    gitSubmoduleAdd "https://github.com/sickill/vim-monokai" "vim/.vim/plugged/vim-monokai"
 }
 
 updateVSCode() {
     updateEcho "VS Code"
-    cp "${VSCODE_DIR}/settings.json" "${DOTFILES_DIR}/vscode"
-    cp "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
+    cp "${VSCODE_DIR}/settings.json" "${VSCODE_DIR}/keybindings.json" "${DOTFILES_DIR}/vscode"
 }
 
 updateAll() {
-    # updateGit
-    # updateHomebrew
-    # updateNPM
-    # updateOhMyZsh
-    # updatePip
-    
+    updateGit
+    updateHomebrew
+    updateNPM
+    updateOhMyZsh
+    updatePip
     updateScripts
-    # updateShell
-    # updateVim
-    # updateVSCode
+    updateShell
+    updateVim
+    updateVSCode
 }
 
 updateAll
