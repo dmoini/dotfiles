@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: work in progress
+
 # Helper functions
 commandNotFound() {
     for cmd in "$@"; do
