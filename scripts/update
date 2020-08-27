@@ -65,7 +65,7 @@ updateDotfiles() {
     if isNotFound -c git; then return; fi
 
     updateEcho "Dotfiles"
-    update_dotfiles
+    sync_dotfiles
     echo
 }
 

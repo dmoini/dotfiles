@@ -121,10 +121,10 @@
     "terminal.ansiWhite": "#C0C0C0",
     "terminal.ansiYellow": "#FBF305"
   },
-  "workbench.colorTheme": "Flatland Monokai",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "newUntitledFile",
   "python.languageServer": "Microsoft",
   "python.defaultInterpreterPath": "/usr/local/opt/python/bin/python3.7",
-  "git.alwaysSignOff": true
+  "git.alwaysSignOff": true,
+  "workbench.colorTheme": "One Dark Pro"
 }
