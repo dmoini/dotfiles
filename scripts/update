@@ -12,7 +12,7 @@ updateEcho() {
 
 commandNotFound() {
     for cmd in "$@"; do
-        if ! which "$cmd" &>/dev/null; then
+        if ! which $cmd &>/dev/null; then
             echo -e "$cmd is not found\n"
             return 0
         fi
@@ -87,10 +87,10 @@ updateNPM() {
 
     updateEcho "NPM Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
-    if [ -z "$outdated_npm_packages" ]; then
+    if [ -z $outdated_npm_packages ]; then
         echo "Global npm packages are up to date"
     else
-        echo "$outdated_npm_packages"
+        echo $outdated_npm_packages
         echo
         npm update -g
     fi
@@ -106,7 +106,7 @@ updatePip() {
 
     updateEcho "Pip Packages"
     outdated_pip_packages=$(syspip list --outdated)
-    if [ -z "$outdated_pip_packages" ]; then
+    if [ -z $outdated_pip_packages ]; then
         echo "Global pip packages are up to date"
     else
         echo -e "$outdated_pip_packages\n"
