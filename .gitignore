@@ -1,4 +1,7 @@
-# In case this gets copied over by accident
+# Homebrew
+Brewfile.lock.json
+
+# Shell
 .localrc
 
 # Swap files
