@@ -1,10 +1,15 @@
 #!/bin/bash
 
+source ~/.exports
 source ~/.functions
 
 LCYAN='\033[0;96m'
 NC='\033[0m'
 CURR_DIR=$(pwd)
+
+####################
+# Helper functions #
+####################
 
 updateEcho() {
     echo -e "${LCYAN}Updating $1...${NC}"
@@ -31,15 +36,27 @@ directoryNotFound() {
 }
 
 isNotFound() {
-    if [ "$1" == "-c" ]; then
+    if [ $1 == "-c" ]; then
         if commandNotFound "${@:2}"; then return 0; fi 
-    elif [ "$1" == "-d" ]; then
+    elif [ $1 == "-d" ]; then
         if directoryNotFound "${@:2}"; then return 0; fi
     else
         echo "Usage for commands: isNotFound -c [command1] [command2]..."
         echo "Usage for directories: isNotFound -d [directory1] [directory2]..."
     fi
     return 1
+}
+
+####################
+# Update functions #
+####################
+
+updateDotfiles() {
+    if isNotFound -c git; then return; fi
+
+    updateEcho "Dotfiles"
+    sync_dotfiles
+    echo
 }
 
 updateHomebrew() {
@@ -49,23 +66,6 @@ updateHomebrew() {
     brew update
     brew upgrade
     brew cleanup -s
-    echo
-}
-
-updateMas() {
-    if isNotFound -c mas; then return; fi
-
-    updateEcho "App Store Applications"
-    mas outdated
-    mas upgrade
-    echo
-}
-
-updateDotfiles() {
-    if isNotFound -c git; then return; fi
-
-    updateEcho "Dotfiles"
-    sync_dotfiles
     echo
 }
 
@@ -82,16 +82,50 @@ updateMacOS() {
     echo
 }
 
+updateMas() {
+    if isNotFound -c mas; then return; fi
+
+    updateEcho "App Store Applications"
+    mas outdated
+    mas upgrade
+    echo
+}
+
+# TODO: check if nvm is found (isNotFound -c nvm does not work)
+updateNode() {
+    if isNotFound -c node; then return; fi
+
+    updateEcho "Node"
+    node_version_regex="\d{1,2}\.\d{1,2}\.\d{1,2}"
+    current_node_version=$(node --version | egrep -o $node_version_regex)
+    latest_node_version=$(nvm ls-remote | tail -n1 | egrep -o $node_version_regex)
+    if [[ "$current_node_version" == "$latest_node_version" ]]; then
+        echo -e "Latest Node version is installed\n"
+        return
+    fi
+    echo "Updating Node to v$latest_node_version and reinstalling global npm packages..."
+
+    nvm install $latest_node_version
+    nvm use $latest_node_version
+    nvm reinstall-packages $current_node_version
+    nvm uninstall $current_node_version
+    nvm alias default $latest_node_version
+    echo
+}
+
 updateNPM() {
     if isNotFound -c npm; then return; fi
+
+    updateEcho "NPM"
+    nvm install-latest-npm
+    echo
 
     updateEcho "NPM Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
     if [ -z $outdated_npm_packages ]; then
         echo "Global npm packages are up to date"
     else
-        echo $outdated_npm_packages
-        echo
+        echo -e "$outdated_npm_packages\n"
         npm update -g
     fi
     echo
@@ -124,10 +158,11 @@ updateOhMyZsh() {
 
 updateAll() {
     updateHomebrew
-    updateMas
     updateDotfiles
     updateLocalGitHubRepositories
     updateMacOS
+    updateMas
+    updateNode
     updateNPM
     updatePip
     updateOhMyZsh
