@@ -72,14 +72,6 @@ syncVim() {
     gitSubmoduleAdd https://github.com/sickill/vim-monokai vim/.vim/plugged/vim-monokai
 }
 
-syncVSCode() {
-    syncEcho "VS Code"
-    VSCODE_DIR="$HOME/Library/Application Support/Code/User"
-
-    cp "$VSCODE_DIR/keybindings.json" $DOTFILES_DIR/vscode
-    cp "$VSCODE_DIR/settings.json" $DOTFILES_DIR/vscode
-}
-
 syncAll() {
     syncGit
     syncHomebrew
@@ -89,7 +81,6 @@ syncAll() {
     syncScripts
     syncShell
     syncVim
-    syncVSCode
 }
 
 syncAll
