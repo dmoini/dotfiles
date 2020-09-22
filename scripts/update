@@ -5,6 +5,8 @@ source ~/.functions
 
 LCYAN='\033[0;96m'
 NC='\033[0m'
+
+CODE_DIR="$HOME/code"
 CURR_DIR=$(pwd)
 
 ####################
@@ -73,7 +75,8 @@ updateLocalGitHubRepositories() {
     if isNotFound -c git hub; then return; fi
 
     updateEcho "GitHub Repositories"
-    update_git_repos
+    gitup -p $CODE_DIR
+    echo
 }
 
 updateMacOS() {
@@ -103,10 +106,10 @@ updateNode() {
         echo -e "Latest Node version is installed\n"
         return
     fi
-    echo "Updating Node to v$latest_node_version and reinstalling global npm packages..."
+    echo -e "Updating Node to v$latest_node_version and reinstalling global npm packages...\n"
 
     nvm install $latest_node_version
-    nvm use $latest_node_version
+    # nvm use $latest_node_version
     nvm reinstall-packages $current_node_version
     nvm uninstall $current_node_version
     nvm alias default $latest_node_version
@@ -117,18 +120,29 @@ updateNPM() {
     if isNotFound -c npm; then return; fi
 
     updateEcho "NPM"
-    nvm install-latest-npm
-    echo
+    if [ $(npm show npm version) == $(npm -v) ]; then
+        echo -e "Latest npm version is installed\n"
+    else
+        nvm install-latest-npm
+        echo
+    fi
 
     updateEcho "NPM Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
-    if [ -z $outdated_npm_packages ]; then
+    if [ -z "$outdated_npm_packages" ]; then
         echo "Global npm packages are up to date"
     else
         echo -e "$outdated_npm_packages\n"
         npm update -g
     fi
     echo
+}
+
+updateOhMyZsh() {
+    if isNotFound -d $HOME/.oh-my-zsh; then return; fi
+
+    updateEcho "Oh My Zsh"
+    env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
 }
 
 updatePip() {
@@ -140,20 +154,13 @@ updatePip() {
 
     updateEcho "Pip Packages"
     outdated_pip_packages=$(syspip list --outdated)
-    if [ -z $outdated_pip_packages ]; then
+    if [ -z "$outdated_pip_packages" ]; then
         echo "Global pip packages are up to date"
     else
         echo -e "$outdated_pip_packages\n"
         syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
     echo
-}
-
-updateOhMyZsh() {
-    if isNotFound -d $HOME/.oh-my-zsh; then return; fi
-
-    updateEcho "Oh My Zsh"
-    env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
 }
 
 updateAll() {
