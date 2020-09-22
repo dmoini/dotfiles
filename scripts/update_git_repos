@@ -5,30 +5,30 @@ CURR_DIR=$(pwd)
 CODE_DIR="$HOME/code"
 
 # Go to the directory that holds all of my code
-cd "$CODE_DIR"
+cd "$CODE_DIR" || exit
 
 # Let the user know what's going on.
 echo -e "\033[1mPulling in latest changes for all repositories...\033[0m"
 
 # Find all git repositories and update it to the master latest revision
 for i in $(find . -name ".git" | cut -c 3-); do
-    echo -e "";
-    echo -e "\033[33m"+$i+"\033[0m";
+    echo -e ""
+    echo -e "\033[33m$i\033[0m"
 
     # We have to go to the .git parent directory to call the pull command
-    cd "$i";
-    cd ..;
+    cd "$i" || exit
+    cd ..
 
     # Finally pull
-    git pull origin master;
+    git pull origin master
 
     # Fetch git objects from upstream and update local branches
     hub sync
 
     # Lets get back to the CURR_DIR
-    cd "$CODE_DIR"
+    cd "$CODE_DIR" || exit
 done
 
 # Return to the original directory and let the user know the script is done
-cd "$CURR_DIR"
+cd "$CURR_DIR" || exit
 echo -e "\n\033[32mComplete!\033[0m\n"

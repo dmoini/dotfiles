@@ -3,11 +3,10 @@
 source ~/.exports
 source ~/.functions
 
-LCYAN='\033[0;96m'
-NC='\033[0m'
+LCYAN="\033[0;96m"
+NC="\033[0m"
 
 CODE_DIR="$HOME/code"
-CURR_DIR=$(pwd)
 
 ####################
 # Helper functions #
@@ -19,7 +18,7 @@ updateEcho() {
 
 commandNotFound() {
     for cmd in "$@"; do
-        if ! which $cmd &>/dev/null; then
+        if ! which "$cmd" &>/dev/null; then
             echo -e "$cmd is not found\n"
             return 0
         fi
@@ -29,7 +28,7 @@ commandNotFound() {
 
 directoryNotFound() {
     for dir in "$@"; do
-        if ! [[ -d $dir ]]; then
+        if ! [[ -d "$dir" ]]; then
             echo -e "$dir is not found\n";
             return 0;
         fi
@@ -38,9 +37,9 @@ directoryNotFound() {
 }
 
 isNotFound() {
-    if [ $1 == "-c" ]; then
+    if [ "$1" == "-c" ]; then
         if commandNotFound "${@:2}"; then return 0; fi 
-    elif [ $1 == "-d" ]; then
+    elif [ "$1" == "-d" ]; then
         if directoryNotFound "${@:2}"; then return 0; fi
     else
         echo "Usage for commands: isNotFound -c [command1] [command2]..."
@@ -75,7 +74,7 @@ updateLocalGitHubRepositories() {
     if isNotFound -c git hub; then return; fi
 
     updateEcho "GitHub Repositories"
-    gitup -p $CODE_DIR
+    gitup -p "$CODE_DIR"
     echo
 }
 
@@ -100,19 +99,19 @@ updateNode() {
 
     updateEcho "Node"
     node_version_regex="\d{1,2}\.\d{1,2}\.\d{1,2}"
-    current_node_version=$(node --version | egrep -o $node_version_regex)
-    latest_node_version=$(nvm ls-remote | tail -n1 | egrep -o $node_version_regex)
+    current_node_version=$(node --version | grep -Eo $node_version_regex)
+    latest_node_version=$(nvm ls-remote | tail -n1 | grep -Eo $node_version_regex)
     if [[ "$current_node_version" == "$latest_node_version" ]]; then
         echo -e "Latest Node version is installed\n"
         return
     fi
     echo -e "Updating Node to v$latest_node_version and reinstalling global npm packages...\n"
 
-    nvm install $latest_node_version
-    # nvm use $latest_node_version
-    nvm reinstall-packages $current_node_version
-    nvm uninstall $current_node_version
-    nvm alias default $latest_node_version
+    nvm install "$latest_node_version"
+    # nvm use "$latest_node_version"
+    nvm reinstall-packages "$current_node_version"
+    nvm uninstall "$current_node_version"
+    nvm alias default "$latest_node_version"
     echo
 }
 
@@ -120,7 +119,7 @@ updateNPM() {
     if isNotFound -c npm; then return; fi
 
     updateEcho "NPM"
-    if [ $(npm show npm version) == $(npm -v) ]; then
+    if [ "$(npm show npm version)" == "$(npm -v)" ]; then
         echo -e "Latest npm version is installed\n"
     else
         nvm install-latest-npm
@@ -139,10 +138,10 @@ updateNPM() {
 }
 
 updateOhMyZsh() {
-    if isNotFound -d $HOME/.oh-my-zsh; then return; fi
+    if isNotFound -d "$HOME/.oh-my-zsh"; then return; fi
 
     updateEcho "Oh My Zsh"
-    env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+    env ZSH="$ZSH" sh "$ZSH/tools/upgrade.sh"
 }
 
 updatePip() {
@@ -158,7 +157,7 @@ updatePip() {
         echo "Global pip packages are up to date"
     else
         echo -e "$outdated_pip_packages\n"
-        syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
+        syspip install -U "$(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')"
     fi
     echo
 }

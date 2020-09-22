@@ -2,7 +2,7 @@
 
 source ~/.functions
 
-CURR_DIR=`pwd`
+CURR_DIR=$(pwd)
 DOTFILES_DIR=$HOME/code/dotfiles
 
 syncEcho() {
@@ -11,14 +11,15 @@ syncEcho() {
 
 # TODO: find way to copy over submodules instead of having to add them manually via this function
 gitSubmoduleAdd() {
-    cd $DOTFILES_DIR
-    git submodule add $1 $2 &>/dev/null
-    cd $CURR_DIR
+    cd "$DOTFILES_DIR" || exit
+    git submodule add "$1" "$2" &>/dev/null
+    cd "$CURR_DIR" || exit
 }
 
 syncGit() {
     syncEcho Git
-    cp $HOME/{.gitconfig,.gitignore} $DOTFILES_DIR/git
+    cp "$HOME/.gitconfig" "$DOTFILES_DIR/git"
+    cp "$HOME/.gitignore" "$DOTFILES_DIR/git"
 }
 
 syncHomebrew() {
@@ -27,19 +28,19 @@ syncHomebrew() {
     if [ -f Brewfile ]; then rm Brewfile; fi
     
     brew bundle dump &>/dev/null
-    mv Brewfile $DOTFILES_DIR/homebrew
+    mv Brewfile "$DOTFILES_DIR/homebrew"
 }
 
 syncNPM() {
     syncEcho NPM
     # To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
-    npm-global-packages > $DOTFILES_DIR/npm/npm-global-packages.txt
+    npm-global-packages > "$DOTFILES_DIR/npm/npm-global-packages.txt"
 }
 
 syncOhMyZsh() {
     syncEcho "Oh My Zsh"
-    cp $HOME/.zshrc $DOTFILES_DIR/oh-my-zsh/
-    cp -r $HOME/.oh-my-zsh/custom/themes $DOTFILES_DIR/oh-my-zsh/custom
+    cp "$HOME/.zshrc" "$DOTFILES_DIR/oh-my-zsh/"
+    cp -r "$HOME/.oh-my-zsh/custom/themes" "$DOTFILES_DIR/oh-my-zsh/custom"
 
     gitSubmoduleAdd https://github.com/MichaelAquilina/zsh-you-should-use oh-my-zsh/custom/plugins/you-should-use
     gitSubmoduleAdd https://github.com/zsh-users/zsh-syntax-highlighting oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -48,23 +49,26 @@ syncOhMyZsh() {
 syncPip() {
     syncEcho Pip
     # To import these packages, run `cat pip-global-packages.txt | xargs pip install -U`
-    syspip freeze > $DOTFILES_DIR/pip/pip-global-packages.txt
+    syspip freeze > "$DOTFILES_DIR/pip/pip-global-packages.txt"
 }
 
 syncScripts() {
     syncEcho script
-    cp -r $HOME/code/scripts/ $DOTFILES_DIR/scripts
+    cp -r "$HOME/code/scripts/" "$DOTFILES_DIR/scripts"
 }
 
 syncShell() {
     syncEcho shell
-    cp $HOME/{.aliases,.exports,.functions} $DOTFILES_DIR/shell
+    cp "$HOME/.aliases" "$DOTFILES_DIR/shell"
+    cp "$HOME/.exports" "$DOTFILES_DIR/shell"
+    cp "$HOME/.functions" "$DOTFILES_DIR/shell"
+    cp "$HOME/.shellcheckrc" "$DOTFILES_DIR/shell"
 }
 
 syncVim() {
     syncEcho Vim
-    cp $HOME/.vimrc $DOTFILES_DIR/vim
-    cp -r $HOME/.vim/autoload $DOTFILES_DIR/vim/.vim
+    cp "$HOME/.vimrc" "$DOTFILES_DIR/vim"
+    cp -r "$HOME/.vim/autoload" "$DOTFILES_DIR/vim/.vim"
 
     gitSubmoduleAdd https://github.com/tomasr/molokai vim/.vim/plugged/molokai
     gitSubmoduleAdd https://github.com/fmoralesc/molokayo vim/.vim/plugged/molokayo

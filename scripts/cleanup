@@ -102,7 +102,7 @@ if type "brew" &>/dev/null; then
     echo 'Cleanup Homebrew Cache...'
     brew cleanup -s &>/dev/null
     #brew cask cleanup &>/dev/null
-    rm -rfv $(brew --cache) &>/dev/null
+    rm -rfv "$(brew --cache)" &>/dev/null
     brew tap --repair &>/dev/null
 fi
 
@@ -118,7 +118,7 @@ fi
 
 if [ "$PYENV_VIRTUALENV_CACHE_PATH" ]; then
     echo 'Removing Pyenv-VirtualEnv Cache...'
-    rm -rfv $PYENV_VIRTUALENV_CACHE_PATH &>/dev/null
+    rm -rfv "$PYENV_VIRTUALENV_CACHE_PATH" &>/dev/null
 fi
 
 if type "npm" &> /dev/null; then

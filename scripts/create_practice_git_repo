@@ -1,24 +1,24 @@
 #!/bin/bash
 
-CURR_DIR=`pwd`
+CURR_DIR=$(pwd)
 CODE_DIR="$HOME/code"
-REPO_TOPIC=`echo $*`
+REPO_TOPIC="$*"
 
 OLD_IFS="$IFS"
 IFS="-"
 HYPHENATED_REPO_TOPIC="$*"
-IFS=$OLD_IFS
-REPO_URL=`echo ${HYPHENATED_REPO_TOPIC}-practice | tr '[:upper:]' '[:lower:]'`
+IFS="$OLD_IFS"
+REPO_URL=$(echo "$HYPHENATED_REPO_TOPIC-practice" | tr '[:upper:]' '[:lower:]')
 
-if [ -z $1 ]
+if [ -z "$1" ]
 then
     echo "How to run script: create_practice_git_repo <topic>"
     exit 1
 fi
 
-cd $CODE_DIR
-mkdir $REPO_URL
-cd $REPO_URL
+cd "$CODE_DIR" || exit
+mkdir "$REPO_URL"
+cd "$REPO_URL" || exit
 touch README.md
 echo "# $REPO_TOPIC Practice
 Practice projects to learn $REPO_TOPIC." >> README.md
@@ -28,4 +28,4 @@ git add . && git commit -m "Created $REPO_TOPIC practice repository."
 hub create -p -d "Practice projects to learn $REPO_TOPIC."
 git push --set-upstream origin master
 
-cd $CURR_DIR
+cd "$CURR_DIR" || exit
