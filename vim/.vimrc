@@ -1,17 +1,22 @@
+" To install plugins, run :PlugInstall
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tomasr/molokai'
+Plug 'sheerun/vim-polyglot'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" Syntax coloring
-syntax enable
+" Activate vim-polygot
+packload
 
-" Color schemes
-colorscheme default
+" Syntax coloring and color scheme
+syntax on
+colorscheme onedark
+
+" Setting terminal colors
+let g:onedark_termcolors=256
 
 " Enable line numbers
 set number
