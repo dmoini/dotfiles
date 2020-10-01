@@ -4,27 +4,3 @@
 [submodule "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "vim/plugged/molokai"]
-	path = vim/plugged/molokai
-	url = https://github.com/tomasr/molokai
-[submodule "vim/plugged/molokayo"]
-	path = vim/plugged/molokayo
-	url = https://github.com/fmoralesc/molokayo
-[submodule "vim/plugged/vim-colors-solarized"]
-	path = vim/plugged/vim-colors-solarized
-	url = https://github.com/micha/vim-colors-solarized
-[submodule "vim/plugged/vim-monokai"]
-	path = vim/plugged/vim-monokai
-	url = https://github.com/sickill/vim-monokai
-[submodule "vim/.vim/plugged/molokai"]
-	path = vim/.vim/plugged/molokai
-	url = https://github.com/tomasr/molokai
-[submodule "vim/.vim/plugged/molokayo"]
-	path = vim/.vim/plugged/molokayo
-	url = https://github.com/fmoralesc/molokayo
-[submodule "vim/.vim/plugged/vim-colors-solarized"]
-	path = vim/.vim/plugged/vim-colors-solarized
-	url = https://github.com/micha/vim-colors-solarized
-[submodule "vim/.vim/plugged/vim-monokai"]
-	path = vim/.vim/plugged/vim-monokai
-	url = https://github.com/sickill/vim-monokai
