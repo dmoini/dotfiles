@@ -67,6 +67,7 @@ alias va="$EDITOR ~/.aliases"
 alias ve="$EDITOR ~/.exports"
 alias vf="$EDITOR ~/.functions"
 alias vl="$EDITOR ~/.localrc"
+alias vv="$EDITOR ~/.vimrc"
 alias vz="$EDITOR ~/.zshrc"
 
 # Miscellaneous

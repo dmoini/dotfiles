@@ -6,8 +6,6 @@ source ~/.functions
 LCYAN="\033[0;96m"
 NC="\033[0m"
 
-CODE_DIR="$HOME/code"
-
 ####################
 # Helper functions #
 ####################
@@ -73,8 +71,12 @@ updateHomebrew() {
 updateLocalGitHubRepositories() {
     if isNotFound -c git hub; then return; fi
 
+    declare -a paths=("$HOME/code")
+
     updateEcho "GitHub Repositories"
-    gitup -p "$CODE_DIR"
+    for path in "${paths[@]}"; do
+        gitup -p "$path"
+    done
     echo
 }
 
@@ -93,7 +95,7 @@ updateMas() {
     echo
 }
 
-# TODO: check if nvm is found (isNotFound -c nvm does not work)
+# TODO: check if nvm is found (isNotFound -c nvm does not work since `nvm` is a function)
 updateNode() {
     if isNotFound -c node; then return; fi
 
@@ -105,10 +107,9 @@ updateNode() {
         echo -e "Latest Node version is installed\n"
         return
     fi
-    echo -e "Updating Node to v$latest_node_version and reinstalling global npm packages...\n"
+    echo -e "Updating Node from v$current_node_version to v$latest_node_version and reinstalling global npm packages...\n"
 
     nvm install "$latest_node_version"
-    # nvm use "$latest_node_version"
     nvm reinstall-packages "$current_node_version"
     nvm uninstall "$current_node_version"
     nvm alias default "$latest_node_version"
@@ -157,7 +158,8 @@ updatePip() {
         echo "Global pip packages are up to date"
     else
         echo -e "$outdated_pip_packages\n"
-        syspip install -U "$(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')"
+        # shellcheck disable=SC2046
+        syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
     echo
 }

@@ -33,7 +33,7 @@ syncHomebrew() {
 
 syncNPM() {
     syncEcho NPM
-    # To import these packages, run `cat npm-global-packages.txt | xargs npm i -g`
+    # To import these packages, run `xargs npm i -g < npm-global-packages.txt`
     npm-global-packages > "$DOTFILES_DIR/npm/npm-global-packages.txt"
 }
 
@@ -48,7 +48,7 @@ syncOhMyZsh() {
 
 syncPip() {
     syncEcho Pip
-    # To import these packages, run `cat pip-global-packages.txt | xargs pip install -U`
+    # To import these packages, run `xargs pip install -U < pip-global-packages.txt`
     syspip freeze > "$DOTFILES_DIR/pip/pip-global-packages.txt"
 }
 
@@ -69,11 +69,7 @@ syncVim() {
     syncEcho Vim
     cp "$HOME/.vimrc" "$DOTFILES_DIR/vim"
     cp -r "$HOME/.vim/autoload" "$DOTFILES_DIR/vim/.vim"
-
-    gitSubmoduleAdd https://github.com/tomasr/molokai vim/.vim/plugged/molokai
-    gitSubmoduleAdd https://github.com/fmoralesc/molokayo vim/.vim/plugged/molokayo
-    gitSubmoduleAdd https://github.com/micha/vim-colors-solarized vim/.vim/plugged/vim-colors-solarized
-    gitSubmoduleAdd https://github.com/sickill/vim-monokai vim/.vim/plugged/vim-monokai
+    cp -r "$HOME/.vim/colors" "$DOTFILES_DIR/vim/.vim"
 }
 
 syncAll() {
