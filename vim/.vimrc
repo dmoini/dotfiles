@@ -3,6 +3,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -10,6 +12,9 @@ call plug#end()
 
 " Activate vim-polygot
 packload
+
+" Custom mappings
+map <C-n> :NERDTreeToggle<CR>
 
 " Syntax coloring and color scheme
 syntax on
