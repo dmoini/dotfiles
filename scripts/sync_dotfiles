@@ -40,7 +40,7 @@ syncNPM() {
 syncOhMyZsh() {
     syncEcho "Oh My Zsh"
     cp "$HOME/.zshrc" "$DOTFILES_DIR/oh-my-zsh/"
-    cp -r "$HOME/.oh-my-zsh/custom/themes" "$DOTFILES_DIR/oh-my-zsh/custom"
+    cp -r "$HOME/.oh-my-zsh/custom/themes" "$DOTFILES_DIR/oh-my-zsh/custom" &>/dev/null
 
     gitSubmoduleAdd https://github.com/MichaelAquilina/zsh-you-should-use oh-my-zsh/custom/plugins/you-should-use
     gitSubmoduleAdd https://github.com/zsh-users/zsh-syntax-highlighting oh-my-zsh/custom/plugins/zsh-syntax-highlighting

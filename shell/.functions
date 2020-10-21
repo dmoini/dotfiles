@@ -67,7 +67,7 @@ fs() {
 
 # Renames branch from old_branch to new_branch
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
-gbrename () {
+gbrename() {
 	if [[ -z "$1" || -z "$2" ]]; then
 		echo "Usage: $0 old_branch new_branch"
 		return 1
@@ -78,35 +78,55 @@ gbrename () {
     fi
 }
 
-# Git commit ammend with last commit message
-gcalcm() {
-    last_commit_message="$(echo $(glcm))"
-    gca "${last_commit_message}"
-}
-
 # Delete branch locally and remotely
 gbdlr() {
-    git branch --delete $1;
+    if [ -z "$1" ]; then
+        echo "Usage: $0 <branch-name>"
+        return 1
+    fi
+    printf "Confirm deletion of local and remote branch \"$1\" [y/n]: "
+    read opt
+    if [ "$opt" != "y" ]; then
+        return 1;
+    fi
+    git branch -D $1;
     git push origin :$1;
+}
+
+# Git checkout main or master
+gcom() {
+    if [[ -n $(git branch --list main) ]]; then
+        git checkout main
+    else
+        git checkout master
+    fi
 }
 
 # Git log find by commit message
 glf() { 
-    git log --all --grep="$1";
+    git log --all --grep="$1"
 }
 
+# Git merge main or master
+gmom() {
+    if [[ -n $(git branch --list main) ]]; then
+        git merge origin/main
+    else
+        git merge origin/master
+    fi
+}
 
 # Track all remote branches
 gtarb() {
     for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
-        git branch --track ${i#remotes/origin/} $i;
+        git branch --track ${i#remotes/origin/} $i
     done
 }
 
 # Opens current directory in IntelliJ IDEA with no arguments, otherwise opens the given location
 i() {
     if [ $# -eq 0 ]; then
-        open -na "IntelliJ IDEA.app" --args .;
+        open -na "IntelliJ IDEA.app" --args .
     else
         open -na "IntelliJ IDEA.app" --args "$@"
     fi;

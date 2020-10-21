@@ -10,5 +10,5 @@ Pygments==2.7.1
 pyparsing==2.4.7
 six==1.15.0
 toml==0.10.1
-virtualenv==20.0.31
-zipp==3.2.0
+virtualenv==20.0.35
+zipp==3.3.1

@@ -55,7 +55,6 @@ updateDotfiles() {
 
     updateEcho "Dotfiles"
     sync_dotfiles
-    echo
 }
 
 updateHomebrew() {
@@ -65,7 +64,6 @@ updateHomebrew() {
     brew update
     brew upgrade
     brew cleanup -s
-    echo
 }
 
 updateLocalGitHubRepositories() {
@@ -77,13 +75,11 @@ updateLocalGitHubRepositories() {
     for path in "${paths[@]}"; do
         gitup -p "$path"
     done
-    echo
 }
 
 updateMacOS() {
     updateEcho "macOS"
     softwareupdate -i -a
-    echo
 }
 
 updateMas() {
@@ -92,7 +88,6 @@ updateMas() {
     updateEcho "App Store Applications"
     mas outdated
     mas upgrade
-    echo
 }
 
 # TODO: check if nvm is found (isNotFound -c nvm does not work since `nvm` is a function)
@@ -104,7 +99,7 @@ updateNode() {
     current_node_version=$(node --version | grep -Eo $node_version_regex)
     latest_node_version=$(nvm ls-remote | tail -n1 | grep -Eo $node_version_regex)
     if [[ "$current_node_version" == "$latest_node_version" ]]; then
-        echo -e "Latest Node version is installed\n"
+        echo "Latest Node version is installed"
         return
     fi
     echo -e "Updating Node from v$current_node_version to v$latest_node_version and reinstalling global npm packages...\n"
@@ -113,7 +108,6 @@ updateNode() {
     nvm reinstall-packages "$current_node_version"
     nvm uninstall "$current_node_version"
     nvm alias default "$latest_node_version"
-    echo
 }
 
 updateNPM() {
@@ -135,7 +129,6 @@ updateNPM() {
         echo -e "$outdated_npm_packages\n"
         npm update -g
     fi
-    echo
 }
 
 updateOhMyZsh() {
@@ -161,20 +154,26 @@ updatePip() {
         # shellcheck disable=SC2046
         syspip install -U $(syspip list --outdated 2>/dev/null | sed 1,2d | awk '{printf $1 " " }' | sed 's/\ $//')
     fi
-    echo
 }
 
-updateAll() {
-    updateHomebrew
-    updateDotfiles
-    updateLocalGitHubRepositories
-    updateMacOS
-    updateMas
-    updateNode
-    updateNPM
-    updatePip
-    updateOhMyZsh
+main() {
+    declare -a updateFunctions=(
+        updateHomebrew
+        updateLocalGitHubRepositories
+        updateMacOS
+        updateMas
+        updateNode
+        updateNPM
+        updatePip
+        updateOhMyZsh
+        updateDotfiles
+    )
+
+    for function in "${updateFunctions[@]}"; do
+        "$function"
+        echo
+    done
     nyan
 }
 
-updateAll
+main
