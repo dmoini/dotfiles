@@ -62,10 +62,12 @@ alias vz="$EDITOR ~/.zshrc"
 
 # Miscellaneous
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
-alias cx="chmod +x"
+alias chrome="open -a 'Google Chrome'"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+alias cx="chmod +x"
 alias fcl="fortune -a | cowsay | lolcat"
 alias ip="ipconfig getifaddr en0"
 alias path="echo '${PATH//:/\n}'"
 alias sp="spotify"
+alias upgrade="update"
 alias ys="yarn start"

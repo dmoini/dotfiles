@@ -3,10 +3,10 @@
 # Opens current directory in VSCode with no arguments, otherwise opens the given location
 c() {
     if [ $# -eq 0 ]; then
-        code .;
+        code .
     else
-        code "$@";
-    fi;
+        code "$@"
+    fi
 }
 
 # Extracs any file type
@@ -17,7 +17,7 @@ extract() {
         echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
         return 1
     else
-        for n in $@; do
+        for n in "$@"; do
             if [ -f "$n" ] ; then
                 case "${n%,}" in
                     *.tar.bz2 | *.tar.gz | *.tar.xz | *.tbz2 | *.tgz | *.txz | *.tar) 
@@ -53,15 +53,14 @@ f() {
 # Determine size of a file or total size of a directory
 fs() {
     if du -b /dev/null > /dev/null 2>&1; then
-        local arg=-sbh;
+        local arg=-sbh
     else
-        local arg=-sh;
+        local arg=-sh
     fi
     if [[ -n "$@" ]]; then
-        du $arg -- "$@";
+        du $arg -- "$@"
     else
-        # du $arg .[^.]* ./*;
-    du $arg *;
+        du $arg *
     fi;
 }
 
@@ -85,12 +84,12 @@ gbdlr() {
         return 1
     fi
     printf "Confirm deletion of local and remote branch \"$1\" [y/n]: "
-    read opt
+    read -r opt
     if [ "$opt" != "y" ]; then
-        return 1;
+        return 1
     fi
-    git branch -D $1;
-    git push origin :$1;
+    git branch -D "$1"
+    git push origin :"$1"
 }
 
 # Git checkout main or master
@@ -118,8 +117,8 @@ gmom() {
 
 # Track all remote branches
 gtarb() {
-    for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do 
-        git branch --track ${i#remotes/origin/} $i
+    for i in $(git branch -a | grep remote | grep -v HEAD | grep -v master); do
+        git branch --track "${i#remotes/origin/}" "$i"
     done
 }
 
@@ -129,7 +128,16 @@ i() {
         open -na "IntelliJ IDEA.app" --args .
     else
         open -na "IntelliJ IDEA.app" --args "$@"
-    fi;
+    fi
+}
+
+# Open Google Chrome with Naruto Shippuden episode number
+naruto-shippuden() {
+    if [ -z "$1" ]; then
+        echo "Usage: $0 <Naruto Shippuden episode number>"
+		return 1
+    fi
+    open -a "Google Chrome" "https://www18.naruspot.tv/watch/naruto-shippuden-episode-$1-dubbed/"
 }
 
 # Lists globally installed npm packages
@@ -139,21 +147,21 @@ npm-global-packages() {
 
 # Returns number of files/folders in a folder
 numfiles() {
-    echo $(ls $1 | wc -l)
+    ls "$1" | wc -l
 }
 
 # Opens the current directory with no arguments, otherwise opens the given location
 o() {
     if [ $# -eq 0 ]; then
-        open .;
+        open .
     else
-        open "$@";
+        open "$@"
     fi;
 }
 
 # Allows user to install global pip package
 syspip() {
-    PIP_REQUIRE_VIRTUALENV=""
+    export PIP_REQUIRE_VIRTUALENV=""
     pip3 "$@"
-    PIP_REQUIRE_VIRTUALENV=true
+    export PIP_REQUIRE_VIRTUALENV=true
 }

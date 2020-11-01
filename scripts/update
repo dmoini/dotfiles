@@ -27,8 +27,8 @@ commandNotFound() {
 directoryNotFound() {
     for dir in "$@"; do
         if ! [[ -d "$dir" ]]; then
-            echo -e "$dir is not found\n";
-            return 0;
+            echo -e "$dir is not found\n"
+            return 0
         fi
     done
     return 1
