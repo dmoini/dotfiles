@@ -19,9 +19,9 @@ elif [ "$1" == "-d" ]; then
 #show help
 elif [ "$1" == "--help" ]; then
     echo "This software uses openssl for encrypting files with the aes-256-cbc cipher"
-    echo "Usage for encrypting: ./encrypt -e [file]"
-    echo "Usage for decrypting: ./encrypt -d [file]"
+    echo "Usage for encrypting: ./cipher -e [file]"
+    echo "Usage for decrypting: ./cipher -d [file]"
 else
     echo "This action does not exist!"
-    echo "Use ./encrypt --help to show help."
+    echo "Use ./cipher --help to show help."
 fi

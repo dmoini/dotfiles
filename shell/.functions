@@ -137,7 +137,7 @@ naruto-shippuden() {
         echo "Usage: $0 <Naruto Shippuden episode number>"
 		return 1
     fi
-    open -a "Google Chrome" "https://www18.naruspot.tv/watch/naruto-shippuden-episode-$1-dubbed/"
+    open -a "Google Chrome" "https://www12.9anime.to/watch/naruto-shippuden-dub.00zr/ep-$1"
 }
 
 # Lists globally installed npm packages
