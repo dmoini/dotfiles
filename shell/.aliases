@@ -37,11 +37,8 @@ alias gu="git push"
 alias guo="git push -u origin"
 
 # Homebrew
-alias bci="brew cask install"
-alias bcu="brew cask uninstall"
-
-# LastPass CLI
-alias lpass-passclip="lpass show --password -c"
+alias bci="brew install --cask"
+alias bcu="brew uninstall --cask"
 
 # Node
 alias nv="node --version"

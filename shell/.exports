@@ -4,17 +4,8 @@
 export EDITOR="vim"
 export VISUAL="vim"
 
-# Go
-export GOPATH="$HOME/code/lib/go"
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$GOPATH/bin:$PATH"
-
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home"
-
-# Mongo
-export MONGO_PATH="/usr/local/mongodb"
-export PATH="$MONGO_PATH/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

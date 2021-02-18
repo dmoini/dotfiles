@@ -158,9 +158,9 @@ updatePip() {
 
 main() {
     declare -a updateFunctions=(
+        updateMacOS
         updateHomebrew
         updateLocalGitHubRepositories
-        updateMacOS
         updateMas
         updateNode
         updateNPM

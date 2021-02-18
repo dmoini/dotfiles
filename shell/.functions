@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Copies password from BitWarden to clipboard
+bw-passclip() {
+    bw get password "$1" | pbcopy
+}
+
 # Opens current directory in VSCode with no arguments, otherwise opens the given location
 c() {
     if [ $# -eq 0 ]; then
