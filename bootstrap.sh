@@ -57,6 +57,13 @@ isRunningBootstrapInDotfilesFolder() {
 # Bootstrap functions #
 #######################
 
+bootstrapChrome() {
+    bootstrapEcho "Google Chrome"
+
+    CHROME_BOOKMARKS_DIR="$HOME/Library/Application Support/Google/Chrome/Profile 1/"
+    cp chrome/Bookmarks "$CHROME_BOOKMARKS_DIR"
+}
+
 bootstrapGit() {
     bootstrapEcho "Git"
     
@@ -146,6 +153,7 @@ bootstrapAll() {
     
     bootstrapHomebrew
     # bootstrapOhMyZsh
+    bootstrapChrome
     bootstrapGit
     bootstrapNode
     bootstrapNPM

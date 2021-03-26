@@ -94,7 +94,7 @@ updateMas() {
 updateNode() {
     if isNotFound -c node; then return; fi
 
-    updateEcho "Node"
+    updateEcho "node"
     node_version_regex="\d{1,2}\.\d{1,2}\.\d{1,2}"
     current_node_version=$(node --version | grep -Eo $node_version_regex)
     latest_node_version=$(nvm ls-remote | tail -n1 | grep -Eo $node_version_regex)
