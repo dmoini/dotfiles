@@ -4,7 +4,7 @@ source ~/.functions
 
 CHROME_BOOKMARKS_FILE="$HOME/Library/Application Support/Google/Chrome/Profile 1/Bookmarks"
 CURR_DIR=$(pwd)
-DOTFILES_DIR=$HOME/code/dotfiles
+DOTFILES_DIR="$HOME/code/dotfiles"
 
 syncEcho() {
     echo -e "Syncing $1 files"
@@ -19,7 +19,7 @@ gitSubmoduleAdd() {
 
 syncChrome() {
     syncEcho "Google Chrome"
-    cp "$CHROME_BOOKMARKS_FILE" "$DOTFILES_DIR/chrome"
+    cat "$CHROME_BOOKMARKS_FILE" | jq 'del(.sync_metadata)' > "$DOTFILES_DIR/chrome/Bookmarks"
 }
 
 syncGit() {
