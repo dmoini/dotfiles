@@ -38,6 +38,7 @@ alias guo="git push -u origin"
 
 # Homebrew
 alias bci="brew install --cask"
+alias bcrs="brew uninstall --cask spotify && brew install --cask spotify"
 alias bcu="brew uninstall --cask"
 
 # Node

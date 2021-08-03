@@ -136,15 +136,6 @@ i() {
     fi
 }
 
-# Open Google Chrome with Naruto Shippuden episode number
-naruto-shippuden() {
-    if [ -z "$1" ]; then
-        echo "Usage: $0 <Naruto Shippuden episode number>"
-		return 1
-    fi
-    open -a "Google Chrome" "https://www12.9anime.to/watch/naruto-shippuden-dub.00zr/ep-$1"
-}
-
 # Lists globally installed npm packages
 npm-global-packages() {
     npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}'

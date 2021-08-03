@@ -1,5 +1,5 @@
 {
-  "checksum": "3bbb7717386db6d26053d8c0ed69f129",
+  "checksum": "e23dc523b3238026a28a0afde603804d",
   "roots": {
     "bookmark_bar": {
       "children": [
@@ -13,17 +13,6 @@
           "name": "",
           "type": "url",
           "url": "https://www.youtube.com/feed/subscriptions"
-        },
-        {
-          "date_added": "13103100780000000",
-          "guid": "60c1af23-6a64-4be3-8dc4-f5efbdef4335",
-          "id": "248",
-          "meta_info": {
-            "last_visited_desktop": "13205574839891029"
-          },
-          "name": "",
-          "type": "url",
-          "url": "https://my.lmu.edu/"
         },
         {
           "date_added": "13068861824000000",
@@ -85,24 +74,24 @@
         {
           "children": [
             {
-              "date_added": "13248674326312481",
-              "guid": "673bb55e-fcb4-4640-be4a-cea14336ee03",
-              "id": "370",
-              "name": "Naruto Shippuden",
+              "date_added": "13262929526154759",
+              "guid": "e68e4921-baf3-4ad9-adbd-a23a14a26221",
+              "id": "383",
+              "name": "Boruto: Naruto Next Generations",
               "type": "url",
-              "url": "https://www12.9anime.to/watch/naruto-shippuden-dub.00zr"
+              "url": "https://9anime.to/watch/boruto-naruto-next-generations-dub.7vjj/ep-1"
             },
             {
-              "date_added": "13257334783805363",
-              "guid": "0f75c93a-dba3-4c85-a15f-50e82aa463ca",
-              "id": "381",
-              "name": "Attack on Titan",
+              "date_added": "13271826346445937",
+              "guid": "34477947-9020-4c5d-bec3-4f5ac363cf67",
+              "id": "397",
+              "name": "My Hero Academia",
               "type": "url",
-              "url": "https://www12.9anime.to/watch/attack-on-titan-final-season-dub.r57y/ep-1"
+              "url": "https://9anime.to/watch/my-hero-academia-2-dub.m5op"
             }
           ],
           "date_added": "13257334745546231",
-          "date_modified": "13261032812133453",
+          "date_modified": "13271826353054694",
           "guid": "e4f0aabb-bd1d-4f21-b477-a10987f7d5d6",
           "id": "380",
           "name": "Anime",
@@ -163,14 +152,6 @@
               "url": "https://www.discover.com/"
             },
             {
-              "date_added": "13248145359900243",
-              "guid": "60cf2e41-2d03-46c3-98db-8fe0b0f604a1",
-              "id": "368",
-              "name": "Expense Tracker Form",
-              "type": "url",
-              "url": "https://docs.google.com/forms/d/e/1FAIpQLSeBpgXWhLihE1JsXQ1wO9K6ET9NQ9gz3tFlUP_OwpgAAygsgQ/viewform"
-            },
-            {
               "date_added": "13248145196730857",
               "guid": "0428f669-9b65-44ed-bb22-ab9356e5e4e7",
               "id": "366",
@@ -205,24 +186,32 @@
               "url": "https://console.aws.amazon.com/console/home"
             },
             {
-              "date_added": "13236227699817378",
-              "guid": "05060d0e-039f-485f-b8f8-4d182d01d92a",
-              "id": "336",
-              "name": "Graebel",
-              "type": "url",
-              "url": "https://myrelocation.graebel.com/"
-            },
-            {
               "date_added": "13236227637022653",
               "guid": "8098b790-dce3-4379-84f9-c04fb80876c7",
               "id": "335",
               "name": "CitySwitcher",
               "type": "url",
               "url": "https://www.cityswitcher.com/"
+            },
+            {
+              "date_added": "13264722377595584",
+              "guid": "8e0f0512-1611-4ddc-80af-36373a286ac1",
+              "id": "395",
+              "name": "Fidelity Investments",
+              "type": "url",
+              "url": "https://www.fidelity.com/"
+            },
+            {
+              "date_added": "13236227699817378",
+              "guid": "05060d0e-039f-485f-b8f8-4d182d01d92a",
+              "id": "336",
+              "name": "Graebel",
+              "type": "url",
+              "url": "https://myrelocation.graebel.com/"
             }
           ],
           "date_added": "13244690393108261",
-          "date_modified": "13244690393108276",
+          "date_modified": "13264722389681104",
           "guid": "3644a4c3-acc6-4157-a7b2-2d1fd6646d61",
           "id": "356",
           "name": "Amazon",
@@ -292,7 +281,7 @@
         }
       ],
       "date_added": "13178880450256588",
-      "date_modified": "13257334745547087",
+      "date_modified": "13271826346445937",
       "guid": "00000000-0000-4000-a000-000000000002",
       "id": "1",
       "name": "Bookmarks Bar",
