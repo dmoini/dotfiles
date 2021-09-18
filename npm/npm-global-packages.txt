@@ -1,4 +1,5 @@
 add-gitignore
+corepack
 emoj
 gh-home
 gtop

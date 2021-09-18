@@ -2,7 +2,6 @@
 
 source ~/.functions
 
-CHROME_BOOKMARKS_FILE="$HOME/Library/Application Support/Google/Chrome/Profile 1/Bookmarks"
 CURR_DIR=$(pwd)
 DOTFILES_DIR="$HOME/code/dotfiles"
 
@@ -15,11 +14,6 @@ gitSubmoduleAdd() {
     cd "$DOTFILES_DIR" || exit
     git submodule add "$1" "$2" &>/dev/null
     cd "$CURR_DIR" || exit
-}
-
-syncChrome() {
-    syncEcho "Google Chrome"
-    cat "$CHROME_BOOKMARKS_FILE" | jq 'del(.sync_metadata)' > "$DOTFILES_DIR/chrome/Bookmarks"
 }
 
 syncGit() {
@@ -79,7 +73,6 @@ syncVim() {
 }
 
 syncAll() {
-    syncChrome
     syncGit
     syncHomebrew
     syncNPM
