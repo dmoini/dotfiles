@@ -14,3 +14,5 @@
     rebase = false
 [alias]
     unstage = reset HEAD --
+[init]
+    defaultBranch = main
