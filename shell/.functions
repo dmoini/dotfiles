@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Reinstall Homebrew cask
+bcr() {
+    brew uninstall --cask "$1" && brew install --cask "$1"
+}
+
 # Copies password from BitWarden to clipboard
 bw-passclip() {
     bw get password "$1" | pbcopy

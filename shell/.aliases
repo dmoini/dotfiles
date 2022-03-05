@@ -14,11 +14,10 @@ alias gcam="git commit --amend -m"
 alias gcm="git commit -m"
 alias gco="git checkout"
 alias gcob="git checkout -b"
-# alias gcom="git checkout master"
 alias gcpaste="git clone \$(pbpaste)"
 alias gd="git diff"
 alias gdh="git diff HEAD"
-alias gdhh="git diff HEAD HEAD^"
+alias gdhh="git diff HEAD^ HEAD"
 alias ghh="gh-home"
 alias gl="git log"
 alias gm="git merge"
@@ -39,7 +38,8 @@ alias guo="git push -u origin"
 
 # Homebrew
 alias bci="brew install --cask"
-alias bcrs="brew uninstall --cask spotify && brew install --cask spotify"
+alias bcrf="bcr ferdi"
+alias bcrs="bcr spotify"
 alias bcu="brew uninstall --cask"
 
 # Node

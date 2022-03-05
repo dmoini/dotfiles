@@ -2,7 +2,6 @@ add-gitignore
 corepack
 emoj
 gh-home
-gtop
 is-online-cli
 is-up-cli
 node-gyp

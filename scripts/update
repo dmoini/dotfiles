@@ -156,6 +156,11 @@ updatePip() {
     fi
 }
 
+postUpdate() {
+    nyan
+    echo
+}
+
 main() {
     declare -a updateFunctions=(
         updateMacOS
@@ -173,7 +178,8 @@ main() {
         "$function"
         echo
     done
-    nyan
+
+    postUpdate
 }
 
 main
