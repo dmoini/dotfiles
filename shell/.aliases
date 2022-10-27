@@ -2,7 +2,9 @@
 
 # Folders
 alias dotfiles="cd $HOME/code/dotfiles"
-alias GO_PRACTICE="cd $HOME/code/lib/go/src/github.com/dmoini/go-practice"
+
+# BitWarden
+alias bw-generate-password="bw generate -ulns --length 16"
 
 # Git
 alias ga="git add"
@@ -23,7 +25,6 @@ alias gl="git log"
 alias gm="git merge"
 alias gma="git merge --abort"
 alias gmc="git merge --continue"
-# alias gmom="git merge origin/master"
 alias gp="git pull"
 alias gpr="git pull --rebase"
 alias gr="git rebase"
@@ -59,7 +60,7 @@ alias vl="$EDITOR ~/.localrc"
 alias vv="$EDITOR ~/.vimrc"
 alias vz="$EDITOR ~/.zshrc"
 
-# Miscellaneous
+# Other
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 alias chrome="open -a 'Google Chrome'"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"

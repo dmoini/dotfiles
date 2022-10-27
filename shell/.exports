@@ -25,5 +25,5 @@ export PATH="$HOME/code/scripts:$PATH"
 # Pip
 export PIP_REQUIRE_VIRTUALENV="true"
 
-# Miscellaneous
+# Other
 export PATH="/usr/local/sbin:$PATH"

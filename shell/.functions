@@ -5,12 +5,19 @@ bcr() {
     brew uninstall --cask "$1" && brew install --cask "$1"
 }
 
-# Copies password from BitWarden to clipboard
+# Get last modified passwords in BitWarden
+bw-get-last-modified-passwords() {
+    bw sync
+    bw list items | jq -r 'sort_by(.login.passwordRevisionDate) | reverse | .[] | .name + " [" + .login.passwordRevisionDate + "]"'
+}
+
+# Copy password from BitWarden to clipboard
 bw-passclip() {
+    bw sync
     bw get password "$1" | pbcopy
 }
 
-# Opens current directory in VSCode with no arguments, otherwise opens the given location
+# Open current directory in VSCode with no arguments, otherwise open the given location
 c() {
     if [ $# -eq 0 ]; then
         code .
@@ -19,7 +26,7 @@ c() {
     fi
 }
 
-# Extracs any file type
+# Extract any file type
 extract() {
     if [ -z "$1" ]; then
         # display usage if no parameters given
@@ -74,7 +81,7 @@ fs() {
     fi;
 }
 
-# Renames branch from old_branch to new_branch
+# Rename branch from old_branch to new_branch
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
 gbrename() {
 	if [[ -z "$1" || -z "$2" ]]; then
@@ -132,26 +139,17 @@ gtarb() {
     done
 }
 
-# Opens current directory in IntelliJ IDEA with no arguments, otherwise opens the given location
-i() {
-    if [ $# -eq 0 ]; then
-        open -na "IntelliJ IDEA.app" --args .
-    else
-        open -na "IntelliJ IDEA.app" --args "$@"
-    fi
-}
-
-# Lists globally installed npm packages
+# List globally installed npm packages
 npm-global-packages() {
     npm list -g --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}'
 }
 
-# Returns number of files/folders in a folder
+# Return number of files/folders in a folder
 numfiles() {
     ls "$1" | wc -l
 }
 
-# Opens the current directory with no arguments, otherwise opens the given location
+# Open the current directory with no arguments, otherwise opens the given location
 o() {
     if [ $# -eq 0 ]; then
         open .
@@ -160,7 +158,7 @@ o() {
     fi;
 }
 
-# Allows user to install global pip package
+# Allow user to install global pip package
 syspip() {
     export PIP_REQUIRE_VIRTUALENV=""
     pip3 "$@"

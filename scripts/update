@@ -94,12 +94,12 @@ updateMas() {
 updateNode() {
     if isNotFound -c node; then return; fi
 
-    updateEcho "node"
+    updateEcho "Node"
     node_version_regex="\d{1,2}\.\d{1,2}\.\d{1,2}"
     current_node_version=$(node --version | grep -Eo $node_version_regex)
-    latest_node_version=$(nvm ls-remote | tail -n1 | grep -Eo $node_version_regex)
+    latest_node_version=$(nvm ls-remote | grep "Latest LTS" | tail -n1 | grep -Eo $node_version_regex)
     if [[ "$current_node_version" == "$latest_node_version" ]]; then
-        echo "Latest Node version is installed"
+        echo "Latest LTS Node version is already installed"
         return
     fi
     echo -e "Updating Node from v$current_node_version to v$latest_node_version and reinstalling global npm packages...\n"
@@ -113,7 +113,7 @@ updateNode() {
 updateNPM() {
     if isNotFound -c npm; then return; fi
 
-    updateEcho "NPM"
+    updateEcho "npm"
     if [ "$(npm show npm version)" == "$(npm -v)" ]; then
         echo -e "Latest npm version is installed\n"
     else
@@ -121,7 +121,7 @@ updateNPM() {
         echo
     fi
 
-    updateEcho "NPM Packages"
+    updateEcho "npm Packages"
     outdated_npm_packages=$(npm outdated -g --depth=0)
     if [ -z "$outdated_npm_packages" ]; then
         echo "Global npm packages are up to date"
