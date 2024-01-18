@@ -11,3 +11,4 @@ speed-test
 tldr
 trash-cli
 undollar
+vercel
