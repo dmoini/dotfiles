@@ -8,7 +8,7 @@ bcr() {
 # Get last modified passwords in BitWarden
 bw-get-last-modified-passwords() {
     bw sync
-    bw list items | jq -r 'sort_by(.login.passwordRevisionDate) | reverse | .[] | .name + " [" + .login.passwordRevisionDate + "]"'
+    bw list items | jq -r 'sort_by(.login.passwordRevisionDate) | reverse | .[] | .name +  " (" + .login.username + ") [" + .login.passwordRevisionDate + "]"'
 }
 
 # Copy password from BitWarden to clipboard
